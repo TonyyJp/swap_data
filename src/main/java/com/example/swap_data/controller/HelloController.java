@@ -16,6 +16,7 @@ public class HelloController {
     @GetMapping(value="/hello")
     public Object hello( /* 参数注解 */ @ApiParam(value = "desc of param" , required=true ) @RequestParam String name) {
 
-        return  BaseMessage.newInstance().success();
+        return  BaseMessage.newInstance().success().addData("a", "1").addData("b", "2");
+//        return  BaseMessage.newInstance().error();
     }
 }
