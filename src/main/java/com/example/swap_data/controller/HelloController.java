@@ -1,5 +1,6 @@
 package com.example.swap_data.controller;
 
+import com.example.swap_data.common.BaseMessage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -14,6 +15,7 @@ public class HelloController {
     @ApiOperation(value = "desc of method", notes = "")
     @GetMapping(value="/hello")
     public Object hello( /* 参数注解 */ @ApiParam(value = "desc of param" , required=true ) @RequestParam String name) {
-        return "Hello " + name + "!";
+
+        return  BaseMessage.newInstance().success();
     }
 }
