@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
+	<property name="LOG_HOME" value="./logs" />
+
+	<!-- 控制台输出 -->
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder
+			class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+			<pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 按照每天生成日志文件 -->
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!--日志文件输出的文件名 -->
+			<FileNamePattern>${LOG_HOME}/TestWeb.log.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<!--日志文件保留天数 -->
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder
+			class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+			<pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %m-%msg%n
+			</pattern>
+		</encoder>
+		<!--日志文件最大的大小 -->
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>20MB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+	<!--根据日志级别分文件存储-->
+	<!--<appender name="info_file" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+		<!--&lt;!&ndash;正在存储的文件名&ndash;&gt;-->
+		<!--<file>logs/info_file.log</file>-->
+		<!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+			<!--<level>INFO</level>-->
+			<!--<onMatch>ACCEPT</onMatch>-->
+			<!--<onMismatch>DENY</onMismatch>-->
+		<!--</filter>-->
+		<!--<encoder>-->
+			<!--<pattern>-->
+				<!--%d{yyyy-MM-dd HH:mm:ss.SSS}  [%thread] %-5level %logger{50}.%M - %msg%n-->
+			<!--</pattern>-->
+		<!--</encoder>-->
+		<!--<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->
+			<!--&lt;!&ndash; rollover daily &ndash;&gt;-->
+			<!--&lt;!&ndash;日志的存档名&ndash;&gt;-->
+			<!--<fileNamePattern>${LOG_HOME}/level/Info_File-%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
+			<!--&lt;!&ndash; each file should be at most 100MB, keep 60 days worth of history, but at most 20GB &ndash;&gt;-->
+			<!--<maxFileSize>100MB</maxFileSize>-->
+			<!--<maxHistory>30</maxHistory>-->
+			<!--<totalSizeCap>10GB</totalSizeCap>-->
+		<!--</rollingPolicy>-->
+	<!--</appender>-->
+
+	<appender name="Error_File" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/Error_File.log</file>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<encoder>
+			<pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} -- [%thread] %-5level %logger{36}.%M - %msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${LOG_HOME}/level/Error_File-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<!-- each file should be at most 100MB, keep 60 days worth of history, but at most 20GB -->
+			<maxFileSize>100MB</maxFileSize>
+			<maxHistory>60</maxHistory>
+			<totalSizeCap>20GB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<logger name="com.example.swap_data" level="DEBUG" additivity="false">
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="FILE" />
+	</logger>
+	<!--<logger name="org.springframework" level="DEBUG" additivity="false">-->
+		<!--<appender-ref ref="STDOUT"/>-->
+		<!--<appender-ref ref="FILE" />-->
+	<!--</logger>-->
+
+	<!-- 日志输出级别 -->
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="Error_File" />
+		<appender-ref ref="FILE" />
+	</root>
+
+</configuration>
