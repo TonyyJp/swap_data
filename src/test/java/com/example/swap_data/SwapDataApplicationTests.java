@@ -1,6 +1,7 @@
 package com.example.swap_data;
 
 import com.example.swap_data.dao.SwapDataAdminMapper;
+import com.example.swap_data.model.SwapDataAdmin;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +14,7 @@ class SwapDataApplicationTests {
 
     @Test
     void contextLoads() {
-        dataAdminMapper.selectByPrimaryKey(new Long(1));
+        SwapDataAdmin admin=dataAdminMapper.selectByPrimaryKey(new Long(1));
     }
 
 }

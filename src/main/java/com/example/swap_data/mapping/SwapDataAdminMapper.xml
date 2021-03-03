@@ -27,7 +27,7 @@
     delete from swap_data_admin
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="lcw.model.SwapDataAdmin">
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapDataAdmin">
     insert into swap_data_admin (id, account, password, 
       name, create_user, create_time, 
       update_user, update_time, status, 
@@ -37,7 +37,7 @@
       #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
       #{isDeleted,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="lcw.model.SwapDataAdmin">
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapDataAdmin">
     insert into swap_data_admin
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="lcw.model.SwapDataAdmin">
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapDataAdmin">
     update swap_data_admin
     <set>
       <if test="account != null">
@@ -137,7 +137,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="lcw.model.SwapDataAdmin">
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapDataAdmin">
     update swap_data_admin
     set account = #{account,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

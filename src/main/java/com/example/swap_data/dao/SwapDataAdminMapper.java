@@ -1,10 +1,11 @@
 package com.example.swap_data.dao;
 
 import com.example.swap_data.model.SwapDataAdmin;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Mapper
 public interface SwapDataAdminMapper {
     int deleteByPrimaryKey(Long id);
 
