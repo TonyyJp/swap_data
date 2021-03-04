@@ -162,3 +162,5 @@
 2021-03-03 15:33:58.723 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'-Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-03-03 15:33:58.727 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'-Initializing Servlet 'dispatcherServlet'
 2021-03-03 15:33:58.742 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms-Completed initialization in 8 ms
+2021-03-04 10:29:37.367 [http-nio-8080-exec-10] WARN  o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'name' is not present]-Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required String parameter 'name' is not present]
+2021-03-04 11:36:43.294 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'-Shutting down ExecutorService 'applicationTaskExecutor'

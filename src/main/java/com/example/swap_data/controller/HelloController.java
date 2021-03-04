@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(value = "desc of class")
+@Api(value = "测试")
 @RestController
 public class HelloController {
 
@@ -18,5 +18,10 @@ public class HelloController {
 
         return  BaseMessage.newInstance().success().addData("a", "1").addData("b", "2");
 //        return  BaseMessage.newInstance().error();
+    }
+
+    @GetMapping(value = "/api/test")
+    public String get(){
+        return "zszxz";
     }
 }

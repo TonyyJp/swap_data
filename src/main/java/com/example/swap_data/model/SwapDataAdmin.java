@@ -1,26 +1,41 @@
 package com.example.swap_data.model;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
 public class SwapDataAdmin {
+
+    @JsonIgnore
     private Long id;
 
+    @ApiModelProperty("账号")
     private String account;
 
+    @ApiModelProperty("密码")
     private String password;
 
+    @JsonIgnore
     private String name;
 
+    @JsonIgnore
     private Integer createUser;
 
+    @JsonIgnore
     private Date createTime;
 
+    @JsonIgnore
     private Integer updateUser;
 
+    @JsonIgnore
     private Date updateTime;
 
+    @JsonIgnore
     private Integer status;
 
+    @JsonIgnore
     private Integer isDeleted;
 
     public Long getId() {
