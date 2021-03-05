@@ -25,7 +25,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //定义排除swagger访问的路径配置
-        String[] swaggerExcludes=new String[]{"/doc.html","/SysUser/**","/webjars/**"};
+        String[] swaggerExcludes=new String[]{"/swagger-ui", "/doc","/SysUser","/webjars/**"};
 
         registry.addInterceptor(authenticationInterceptor())
                 .addPathPatterns("/**")
@@ -41,20 +41,5 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Bean
     public JwtInterceptor authenticationInterceptor() {
         return new JwtInterceptor();
-    }
-
-    /* *
-     * @Author lsc
-     * <p>跨域支持 </p>
-     * @Param [registry]
-     * @Return void
-     */
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("*")
-                .allowCredentials(true)
-                .allowedMethods("GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS", "HEAD")
-                .maxAge(3600 * 24);
     }
 }

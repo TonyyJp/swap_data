@@ -4,10 +4,7 @@ import com.example.swap_data.common.BaseMessage;
 import com.example.swap_data.common.JwtUtil;
 import com.example.swap_data.model.SwapDataAdmin;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +14,7 @@ import java.util.Map;
 @RestController
 public class SysUserController {
 
-    @PostMapping(value = "/login")
+    @GetMapping(value = "/login")
     public Object login(@RequestBody SwapDataAdmin sysUser){
         String account = sysUser.getAccount();
         String password = sysUser.getPassword();
