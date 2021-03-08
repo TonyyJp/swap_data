@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.swap_data.dao.SwapUserScooterBatteryMapper">
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapUserScooterBattery">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="scooter_id" jdbcType="INTEGER" property="scooterId" />
+    <result column="battery_id" jdbcType="INTEGER" property="batteryId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, scooter_id, battery_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_user_scooter_battery
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_user_scooter_battery
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapUserScooterBattery">
+    insert into swap_user_scooter_battery (id, user_id, scooter_id, 
+      battery_id)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{scooterId,jdbcType=INTEGER}, 
+      #{batteryId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapUserScooterBattery">
+    insert into swap_user_scooter_battery
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="scooterId != null">
+        scooter_id,
+      </if>
+      <if test="batteryId != null">
+        battery_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="batteryId != null">
+        #{batteryId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapUserScooterBattery">
+    update swap_user_scooter_battery
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        scooter_id = #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="batteryId != null">
+        battery_id = #{batteryId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapUserScooterBattery">
+    update swap_user_scooter_battery
+    set user_id = #{userId,jdbcType=INTEGER},
+      scooter_id = #{scooterId,jdbcType=INTEGER},
+      battery_id = #{batteryId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapUserScooterBattery">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="scooter_id" jdbcType="INTEGER" property="scooterId" />
+    <result column="battery_id" jdbcType="INTEGER" property="batteryId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, scooter_id, battery_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_user_scooter_battery
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_user_scooter_battery
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapUserScooterBattery">
+    insert into swap_user_scooter_battery (id, user_id, scooter_id, 
+      battery_id)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{scooterId,jdbcType=INTEGER}, 
+      #{batteryId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapUserScooterBattery">
+    insert into swap_user_scooter_battery
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="scooterId != null">
+        scooter_id,
+      </if>
+      <if test="batteryId != null">
+        battery_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="batteryId != null">
+        #{batteryId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapUserScooterBattery">
+    update swap_user_scooter_battery
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        scooter_id = #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="batteryId != null">
+        battery_id = #{batteryId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapUserScooterBattery">
+    update swap_user_scooter_battery
+    set user_id = #{userId,jdbcType=INTEGER},
+      scooter_id = #{scooterId,jdbcType=INTEGER},
+      battery_id = #{batteryId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

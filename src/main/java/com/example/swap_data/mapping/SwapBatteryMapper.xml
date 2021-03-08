@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.swap_data.dao.SwapBatteryMapper">
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapBattery">
+    <id column="battery_id" jdbcType="INTEGER" property="batteryId" />
+    <result column="battery_code" jdbcType="VARCHAR" property="batteryCode" />
+    <result column="battery_name" jdbcType="VARCHAR" property="batteryName" />
+    <result column="battery_version" jdbcType="VARCHAR" property="batteryVersion" />
+    <result column="voltage" jdbcType="VARCHAR" property="voltage" />
+    <result column="electricity" jdbcType="VARCHAR" property="electricity" />
+    <result column="cycle_index" jdbcType="INTEGER" property="cycleIndex" />
+    <result column="surplus_mileage" jdbcType="VARCHAR" property="surplusMileage" />
+    <result column="surplus_electric" jdbcType="VARCHAR" property="surplusElectric" />
+    <result column="health_value" jdbcType="INTEGER" property="healthValue" />
+    <result column="battery_status" jdbcType="CHAR" property="batteryStatus" />
+    <result column="lock_status" jdbcType="CHAR" property="lockStatus" />
+    <result column="power_status" jdbcType="CHAR" property="powerStatus" />
+    <result column="activate_status" jdbcType="CHAR" property="activateStatus" />
+    <result column="temperature" jdbcType="VARCHAR" property="temperature" />
+    <result column="connect_status" jdbcType="CHAR" property="connectStatus" />
+    <result column="system_status" jdbcType="VARCHAR" property="systemStatus" />
+    <result column="expiration_date" jdbcType="INTEGER" property="expirationDate" />
+    <result column="specification" jdbcType="VARCHAR" property="specification" />
+    <result column="producer" jdbcType="VARCHAR" property="producer" />
+    <result column="produce_pack" jdbcType="VARCHAR" property="producePack" />
+    <result column="produce_time" jdbcType="DATE" property="produceTime" />
+    <result column="produce_pack_date" jdbcType="VARCHAR" property="producePackDate" />
+    <result column="supplier_id" jdbcType="VARCHAR" property="supplierId" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    battery_id, battery_code, battery_name, battery_version, voltage, electricity, cycle_index, 
+    surplus_mileage, surplus_electric, health_value, battery_status, lock_status, power_status, 
+    activate_status, temperature, connect_status, system_status, expiration_date, specification, 
+    producer, produce_pack, produce_time, produce_pack_date, supplier_id, create_user, 
+    create_time, update_user, update_time, remark, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_battery
+    where battery_id = #{batteryId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_battery
+    where battery_id = #{batteryId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapBattery">
+    insert into swap_battery (battery_id, battery_code, battery_name, 
+      battery_version, voltage, electricity, 
+      cycle_index, surplus_mileage, surplus_electric, 
+      health_value, battery_status, lock_status, 
+      power_status, activate_status, temperature, 
+      connect_status, system_status, expiration_date, 
+      specification, producer, produce_pack, 
+      produce_time, produce_pack_date, supplier_id, 
+      create_user, create_time, update_user, 
+      update_time, remark, del_flag
+      )
+    values (#{batteryId,jdbcType=INTEGER}, #{batteryCode,jdbcType=VARCHAR}, #{batteryName,jdbcType=VARCHAR}, 
+      #{batteryVersion,jdbcType=VARCHAR}, #{voltage,jdbcType=VARCHAR}, #{electricity,jdbcType=VARCHAR}, 
+      #{cycleIndex,jdbcType=INTEGER}, #{surplusMileage,jdbcType=VARCHAR}, #{surplusElectric,jdbcType=VARCHAR}, 
+      #{healthValue,jdbcType=INTEGER}, #{batteryStatus,jdbcType=CHAR}, #{lockStatus,jdbcType=CHAR}, 
+      #{powerStatus,jdbcType=CHAR}, #{activateStatus,jdbcType=CHAR}, #{temperature,jdbcType=VARCHAR}, 
+      #{connectStatus,jdbcType=CHAR}, #{systemStatus,jdbcType=VARCHAR}, #{expirationDate,jdbcType=INTEGER}, 
+      #{specification,jdbcType=VARCHAR}, #{producer,jdbcType=VARCHAR}, #{producePack,jdbcType=VARCHAR}, 
+      #{produceTime,jdbcType=DATE}, #{producePackDate,jdbcType=VARCHAR}, #{supplierId,jdbcType=VARCHAR}, 
+      #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapBattery">
+    insert into swap_battery
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="batteryId != null">
+        battery_id,
+      </if>
+      <if test="batteryCode != null">
+        battery_code,
+      </if>
+      <if test="batteryName != null">
+        battery_name,
+      </if>
+      <if test="batteryVersion != null">
+        battery_version,
+      </if>
+      <if test="voltage != null">
+        voltage,
+      </if>
+      <if test="electricity != null">
+        electricity,
+      </if>
+      <if test="cycleIndex != null">
+        cycle_index,
+      </if>
+      <if test="surplusMileage != null">
+        surplus_mileage,
+      </if>
+      <if test="surplusElectric != null">
+        surplus_electric,
+      </if>
+      <if test="healthValue != null">
+        health_value,
+      </if>
+      <if test="batteryStatus != null">
+        battery_status,
+      </if>
+      <if test="lockStatus != null">
+        lock_status,
+      </if>
+      <if test="powerStatus != null">
+        power_status,
+      </if>
+      <if test="activateStatus != null">
+        activate_status,
+      </if>
+      <if test="temperature != null">
+        temperature,
+      </if>
+      <if test="connectStatus != null">
+        connect_status,
+      </if>
+      <if test="systemStatus != null">
+        system_status,
+      </if>
+      <if test="expirationDate != null">
+        expiration_date,
+      </if>
+      <if test="specification != null">
+        specification,
+      </if>
+      <if test="producer != null">
+        producer,
+      </if>
+      <if test="producePack != null">
+        produce_pack,
+      </if>
+      <if test="produceTime != null">
+        produce_time,
+      </if>
+      <if test="producePackDate != null">
+        produce_pack_date,
+      </if>
+      <if test="supplierId != null">
+        supplier_id,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="batteryId != null">
+        #{batteryId,jdbcType=INTEGER},
+      </if>
+      <if test="batteryCode != null">
+        #{batteryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="batteryName != null">
+        #{batteryName,jdbcType=VARCHAR},
+      </if>
+      <if test="batteryVersion != null">
+        #{batteryVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="voltage != null">
+        #{voltage,jdbcType=VARCHAR},
+      </if>
+      <if test="electricity != null">
+        #{electricity,jdbcType=VARCHAR},
+      </if>
+      <if test="cycleIndex != null">
+        #{cycleIndex,jdbcType=INTEGER},
+      </if>
+      <if test="surplusMileage != null">
+        #{surplusMileage,jdbcType=VARCHAR},
+      </if>
+      <if test="surplusElectric != null">
+        #{surplusElectric,jdbcType=VARCHAR},
+      </if>
+      <if test="healthValue != null">
+        #{healthValue,jdbcType=INTEGER},
+      </if>
+      <if test="batteryStatus != null">
+        #{batteryStatus,jdbcType=CHAR},
+      </if>
+      <if test="lockStatus != null">
+        #{lockStatus,jdbcType=CHAR},
+      </if>
+      <if test="powerStatus != null">
+        #{powerStatus,jdbcType=CHAR},
+      </if>
+      <if test="activateStatus != null">
+        #{activateStatus,jdbcType=CHAR},
+      </if>
+      <if test="temperature != null">
+        #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="connectStatus != null">
+        #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="systemStatus != null">
+        #{systemStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="expirationDate != null">
+        #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null">
+        #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="producer != null">
+        #{producer,jdbcType=VARCHAR},
+      </if>
+      <if test="producePack != null">
+        #{producePack,jdbcType=VARCHAR},
+      </if>
+      <if test="produceTime != null">
+        #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="producePackDate != null">
+        #{producePackDate,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null">
+        #{supplierId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapBattery">
+    update swap_battery
+    <set>
+      <if test="batteryCode != null">
+        battery_code = #{batteryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="batteryName != null">
+        battery_name = #{batteryName,jdbcType=VARCHAR},
+      </if>
+      <if test="batteryVersion != null">
+        battery_version = #{batteryVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="voltage != null">
+        voltage = #{voltage,jdbcType=VARCHAR},
+      </if>
+      <if test="electricity != null">
+        electricity = #{electricity,jdbcType=VARCHAR},
+      </if>
+      <if test="cycleIndex != null">
+        cycle_index = #{cycleIndex,jdbcType=INTEGER},
+      </if>
+      <if test="surplusMileage != null">
+        surplus_mileage = #{surplusMileage,jdbcType=VARCHAR},
+      </if>
+      <if test="surplusElectric != null">
+        surplus_electric = #{surplusElectric,jdbcType=VARCHAR},
+      </if>
+      <if test="healthValue != null">
+        health_value = #{healthValue,jdbcType=INTEGER},
+      </if>
+      <if test="batteryStatus != null">
+        battery_status = #{batteryStatus,jdbcType=CHAR},
+      </if>
+      <if test="lockStatus != null">
+        lock_status = #{lockStatus,jdbcType=CHAR},
+      </if>
+      <if test="powerStatus != null">
+        power_status = #{powerStatus,jdbcType=CHAR},
+      </if>
+      <if test="activateStatus != null">
+        activate_status = #{activateStatus,jdbcType=CHAR},
+      </if>
+      <if test="temperature != null">
+        temperature = #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="connectStatus != null">
+        connect_status = #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="systemStatus != null">
+        system_status = #{systemStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="expirationDate != null">
+        expiration_date = #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null">
+        specification = #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="producer != null">
+        producer = #{producer,jdbcType=VARCHAR},
+      </if>
+      <if test="producePack != null">
+        produce_pack = #{producePack,jdbcType=VARCHAR},
+      </if>
+      <if test="produceTime != null">
+        produce_time = #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="producePackDate != null">
+        produce_pack_date = #{producePackDate,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null">
+        supplier_id = #{supplierId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where battery_id = #{batteryId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapBattery">
+    update swap_battery
+    set battery_code = #{batteryCode,jdbcType=VARCHAR},
+      battery_name = #{batteryName,jdbcType=VARCHAR},
+      battery_version = #{batteryVersion,jdbcType=VARCHAR},
+      voltage = #{voltage,jdbcType=VARCHAR},
+      electricity = #{electricity,jdbcType=VARCHAR},
+      cycle_index = #{cycleIndex,jdbcType=INTEGER},
+      surplus_mileage = #{surplusMileage,jdbcType=VARCHAR},
+      surplus_electric = #{surplusElectric,jdbcType=VARCHAR},
+      health_value = #{healthValue,jdbcType=INTEGER},
+      battery_status = #{batteryStatus,jdbcType=CHAR},
+      lock_status = #{lockStatus,jdbcType=CHAR},
+      power_status = #{powerStatus,jdbcType=CHAR},
+      activate_status = #{activateStatus,jdbcType=CHAR},
+      temperature = #{temperature,jdbcType=VARCHAR},
+      connect_status = #{connectStatus,jdbcType=CHAR},
+      system_status = #{systemStatus,jdbcType=VARCHAR},
+      expiration_date = #{expirationDate,jdbcType=INTEGER},
+      specification = #{specification,jdbcType=VARCHAR},
+      producer = #{producer,jdbcType=VARCHAR},
+      produce_pack = #{producePack,jdbcType=VARCHAR},
+      produce_time = #{produceTime,jdbcType=DATE},
+      produce_pack_date = #{producePackDate,jdbcType=VARCHAR},
+      supplier_id = #{supplierId,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where battery_id = #{batteryId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapBattery">
+    <id column="battery_id" jdbcType="INTEGER" property="batteryId" />
+    <result column="battery_code" jdbcType="VARCHAR" property="batteryCode" />
+    <result column="battery_name" jdbcType="VARCHAR" property="batteryName" />
+    <result column="battery_version" jdbcType="VARCHAR" property="batteryVersion" />
+    <result column="voltage" jdbcType="VARCHAR" property="voltage" />
+    <result column="electricity" jdbcType="VARCHAR" property="electricity" />
+    <result column="cycle_index" jdbcType="INTEGER" property="cycleIndex" />
+    <result column="surplus_mileage" jdbcType="VARCHAR" property="surplusMileage" />
+    <result column="surplus_electric" jdbcType="VARCHAR" property="surplusElectric" />
+    <result column="health_value" jdbcType="INTEGER" property="healthValue" />
+    <result column="battery_status" jdbcType="CHAR" property="batteryStatus" />
+    <result column="lock_status" jdbcType="CHAR" property="lockStatus" />
+    <result column="power_status" jdbcType="CHAR" property="powerStatus" />
+    <result column="activate_status" jdbcType="CHAR" property="activateStatus" />
+    <result column="temperature" jdbcType="VARCHAR" property="temperature" />
+    <result column="connect_status" jdbcType="CHAR" property="connectStatus" />
+    <result column="system_status" jdbcType="VARCHAR" property="systemStatus" />
+    <result column="expiration_date" jdbcType="INTEGER" property="expirationDate" />
+    <result column="specification" jdbcType="VARCHAR" property="specification" />
+    <result column="producer" jdbcType="VARCHAR" property="producer" />
+    <result column="produce_pack" jdbcType="VARCHAR" property="producePack" />
+    <result column="produce_time" jdbcType="DATE" property="produceTime" />
+    <result column="produce_pack_date" jdbcType="VARCHAR" property="producePackDate" />
+    <result column="supplier_id" jdbcType="VARCHAR" property="supplierId" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    battery_id, battery_code, battery_name, battery_version, voltage, electricity, cycle_index, 
+    surplus_mileage, surplus_electric, health_value, battery_status, lock_status, power_status, 
+    activate_status, temperature, connect_status, system_status, expiration_date, specification, 
+    producer, produce_pack, produce_time, produce_pack_date, supplier_id, create_user, 
+    create_time, update_user, update_time, remark, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_battery
+    where battery_id = #{batteryId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_battery
+    where battery_id = #{batteryId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapBattery">
+    insert into swap_battery (battery_id, battery_code, battery_name, 
+      battery_version, voltage, electricity, 
+      cycle_index, surplus_mileage, surplus_electric, 
+      health_value, battery_status, lock_status, 
+      power_status, activate_status, temperature, 
+      connect_status, system_status, expiration_date, 
+      specification, producer, produce_pack, 
+      produce_time, produce_pack_date, supplier_id, 
+      create_user, create_time, update_user, 
+      update_time, remark, del_flag
+      )
+    values (#{batteryId,jdbcType=INTEGER}, #{batteryCode,jdbcType=VARCHAR}, #{batteryName,jdbcType=VARCHAR}, 
+      #{batteryVersion,jdbcType=VARCHAR}, #{voltage,jdbcType=VARCHAR}, #{electricity,jdbcType=VARCHAR}, 
+      #{cycleIndex,jdbcType=INTEGER}, #{surplusMileage,jdbcType=VARCHAR}, #{surplusElectric,jdbcType=VARCHAR}, 
+      #{healthValue,jdbcType=INTEGER}, #{batteryStatus,jdbcType=CHAR}, #{lockStatus,jdbcType=CHAR}, 
+      #{powerStatus,jdbcType=CHAR}, #{activateStatus,jdbcType=CHAR}, #{temperature,jdbcType=VARCHAR}, 
+      #{connectStatus,jdbcType=CHAR}, #{systemStatus,jdbcType=VARCHAR}, #{expirationDate,jdbcType=INTEGER}, 
+      #{specification,jdbcType=VARCHAR}, #{producer,jdbcType=VARCHAR}, #{producePack,jdbcType=VARCHAR}, 
+      #{produceTime,jdbcType=DATE}, #{producePackDate,jdbcType=VARCHAR}, #{supplierId,jdbcType=VARCHAR}, 
+      #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapBattery">
+    insert into swap_battery
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="batteryId != null">
+        battery_id,
+      </if>
+      <if test="batteryCode != null">
+        battery_code,
+      </if>
+      <if test="batteryName != null">
+        battery_name,
+      </if>
+      <if test="batteryVersion != null">
+        battery_version,
+      </if>
+      <if test="voltage != null">
+        voltage,
+      </if>
+      <if test="electricity != null">
+        electricity,
+      </if>
+      <if test="cycleIndex != null">
+        cycle_index,
+      </if>
+      <if test="surplusMileage != null">
+        surplus_mileage,
+      </if>
+      <if test="surplusElectric != null">
+        surplus_electric,
+      </if>
+      <if test="healthValue != null">
+        health_value,
+      </if>
+      <if test="batteryStatus != null">
+        battery_status,
+      </if>
+      <if test="lockStatus != null">
+        lock_status,
+      </if>
+      <if test="powerStatus != null">
+        power_status,
+      </if>
+      <if test="activateStatus != null">
+        activate_status,
+      </if>
+      <if test="temperature != null">
+        temperature,
+      </if>
+      <if test="connectStatus != null">
+        connect_status,
+      </if>
+      <if test="systemStatus != null">
+        system_status,
+      </if>
+      <if test="expirationDate != null">
+        expiration_date,
+      </if>
+      <if test="specification != null">
+        specification,
+      </if>
+      <if test="producer != null">
+        producer,
+      </if>
+      <if test="producePack != null">
+        produce_pack,
+      </if>
+      <if test="produceTime != null">
+        produce_time,
+      </if>
+      <if test="producePackDate != null">
+        produce_pack_date,
+      </if>
+      <if test="supplierId != null">
+        supplier_id,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="batteryId != null">
+        #{batteryId,jdbcType=INTEGER},
+      </if>
+      <if test="batteryCode != null">
+        #{batteryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="batteryName != null">
+        #{batteryName,jdbcType=VARCHAR},
+      </if>
+      <if test="batteryVersion != null">
+        #{batteryVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="voltage != null">
+        #{voltage,jdbcType=VARCHAR},
+      </if>
+      <if test="electricity != null">
+        #{electricity,jdbcType=VARCHAR},
+      </if>
+      <if test="cycleIndex != null">
+        #{cycleIndex,jdbcType=INTEGER},
+      </if>
+      <if test="surplusMileage != null">
+        #{surplusMileage,jdbcType=VARCHAR},
+      </if>
+      <if test="surplusElectric != null">
+        #{surplusElectric,jdbcType=VARCHAR},
+      </if>
+      <if test="healthValue != null">
+        #{healthValue,jdbcType=INTEGER},
+      </if>
+      <if test="batteryStatus != null">
+        #{batteryStatus,jdbcType=CHAR},
+      </if>
+      <if test="lockStatus != null">
+        #{lockStatus,jdbcType=CHAR},
+      </if>
+      <if test="powerStatus != null">
+        #{powerStatus,jdbcType=CHAR},
+      </if>
+      <if test="activateStatus != null">
+        #{activateStatus,jdbcType=CHAR},
+      </if>
+      <if test="temperature != null">
+        #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="connectStatus != null">
+        #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="systemStatus != null">
+        #{systemStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="expirationDate != null">
+        #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null">
+        #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="producer != null">
+        #{producer,jdbcType=VARCHAR},
+      </if>
+      <if test="producePack != null">
+        #{producePack,jdbcType=VARCHAR},
+      </if>
+      <if test="produceTime != null">
+        #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="producePackDate != null">
+        #{producePackDate,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null">
+        #{supplierId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapBattery">
+    update swap_battery
+    <set>
+      <if test="batteryCode != null">
+        battery_code = #{batteryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="batteryName != null">
+        battery_name = #{batteryName,jdbcType=VARCHAR},
+      </if>
+      <if test="batteryVersion != null">
+        battery_version = #{batteryVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="voltage != null">
+        voltage = #{voltage,jdbcType=VARCHAR},
+      </if>
+      <if test="electricity != null">
+        electricity = #{electricity,jdbcType=VARCHAR},
+      </if>
+      <if test="cycleIndex != null">
+        cycle_index = #{cycleIndex,jdbcType=INTEGER},
+      </if>
+      <if test="surplusMileage != null">
+        surplus_mileage = #{surplusMileage,jdbcType=VARCHAR},
+      </if>
+      <if test="surplusElectric != null">
+        surplus_electric = #{surplusElectric,jdbcType=VARCHAR},
+      </if>
+      <if test="healthValue != null">
+        health_value = #{healthValue,jdbcType=INTEGER},
+      </if>
+      <if test="batteryStatus != null">
+        battery_status = #{batteryStatus,jdbcType=CHAR},
+      </if>
+      <if test="lockStatus != null">
+        lock_status = #{lockStatus,jdbcType=CHAR},
+      </if>
+      <if test="powerStatus != null">
+        power_status = #{powerStatus,jdbcType=CHAR},
+      </if>
+      <if test="activateStatus != null">
+        activate_status = #{activateStatus,jdbcType=CHAR},
+      </if>
+      <if test="temperature != null">
+        temperature = #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="connectStatus != null">
+        connect_status = #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="systemStatus != null">
+        system_status = #{systemStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="expirationDate != null">
+        expiration_date = #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null">
+        specification = #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="producer != null">
+        producer = #{producer,jdbcType=VARCHAR},
+      </if>
+      <if test="producePack != null">
+        produce_pack = #{producePack,jdbcType=VARCHAR},
+      </if>
+      <if test="produceTime != null">
+        produce_time = #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="producePackDate != null">
+        produce_pack_date = #{producePackDate,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null">
+        supplier_id = #{supplierId,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where battery_id = #{batteryId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapBattery">
+    update swap_battery
+    set battery_code = #{batteryCode,jdbcType=VARCHAR},
+      battery_name = #{batteryName,jdbcType=VARCHAR},
+      battery_version = #{batteryVersion,jdbcType=VARCHAR},
+      voltage = #{voltage,jdbcType=VARCHAR},
+      electricity = #{electricity,jdbcType=VARCHAR},
+      cycle_index = #{cycleIndex,jdbcType=INTEGER},
+      surplus_mileage = #{surplusMileage,jdbcType=VARCHAR},
+      surplus_electric = #{surplusElectric,jdbcType=VARCHAR},
+      health_value = #{healthValue,jdbcType=INTEGER},
+      battery_status = #{batteryStatus,jdbcType=CHAR},
+      lock_status = #{lockStatus,jdbcType=CHAR},
+      power_status = #{powerStatus,jdbcType=CHAR},
+      activate_status = #{activateStatus,jdbcType=CHAR},
+      temperature = #{temperature,jdbcType=VARCHAR},
+      connect_status = #{connectStatus,jdbcType=CHAR},
+      system_status = #{systemStatus,jdbcType=VARCHAR},
+      expiration_date = #{expirationDate,jdbcType=INTEGER},
+      specification = #{specification,jdbcType=VARCHAR},
+      producer = #{producer,jdbcType=VARCHAR},
+      produce_pack = #{producePack,jdbcType=VARCHAR},
+      produce_time = #{produceTime,jdbcType=DATE},
+      produce_pack_date = #{producePackDate,jdbcType=VARCHAR},
+      supplier_id = #{supplierId,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where battery_id = #{batteryId,jdbcType=INTEGER}
+  </update>
+</mapper>

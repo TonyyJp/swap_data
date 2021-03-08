@@ -1,0 +1,235 @@
+2021-03-06 10:06:06.835 [main] INFO  com.example.swap_data.SwapDataApplication - Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 84542 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 84542 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)
+2021-03-06 10:06:06.865 [main] DEBUG com.example.swap_data.SwapDataApplication - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-06 10:06:06.866 [main] INFO  com.example.swap_data.SwapDataApplication - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-06 10:06:08.750 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)-Tomcat initialized with port(s): 8000 (http)
+2021-03-06 10:06:08.761 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]-Initializing ProtocolHandler ["http-nio-8000"]
+2021-03-06 10:06:08.762 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]-Starting service [Tomcat]
+2021-03-06 10:06:08.762 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]-Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-06 10:06:08.850 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext-Initializing Spring embedded WebApplicationContext
+2021-03-06 10:06:08.851 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1806 ms-Root WebApplicationContext: initialization completed in 1806 ms
+2021-03-06 10:06:08.894 [main] DEBUG com.example.swap_data.config.CORSFilter - Filter 'CORSFilter' configured for use-Filter 'CORSFilter' configured for use
+2021-03-06 10:06:09.777 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]-Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-06 10:06:09.901 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'-Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-06 10:06:10.154 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]-Starting ProtocolHandler ["http-nio-8000"]
+2021-03-06 10:06:10.190 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''-Tomcat started on port(s): 8000 (http) with context path ''
+2021-03-06 10:06:10.191 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed-Context refreshed
+2021-03-06 10:06:10.212 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)-Found 1 custom documentation plugin(s)
+2021-03-06 10:06:10.250 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references-Scanning for api listing references
+2021-03-06 10:06:10.497 [main] INFO  com.example.swap_data.SwapDataApplication - Started SwapDataApplication in 4.78 seconds (JVM running for 6.416)-Started SwapDataApplication in 4.78 seconds (JVM running for 6.416)
+2021-03-06 10:22:31.204 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'-Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-06 10:22:37.982 [main] INFO  com.example.swap_data.SwapDataApplication - Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 85003 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 85003 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)
+2021-03-06 10:22:38.033 [main] DEBUG com.example.swap_data.SwapDataApplication - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-06 10:22:38.034 [main] INFO  com.example.swap_data.SwapDataApplication - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-06 10:22:40.431 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)-Tomcat initialized with port(s): 8000 (http)
+2021-03-06 10:22:40.460 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]-Initializing ProtocolHandler ["http-nio-8000"]
+2021-03-06 10:22:40.462 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]-Starting service [Tomcat]
+2021-03-06 10:22:40.462 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]-Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-06 10:22:40.641 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext-Initializing Spring embedded WebApplicationContext
+2021-03-06 10:22:40.641 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2459 ms-Root WebApplicationContext: initialization completed in 2459 ms
+2021-03-06 10:22:40.948 [main] DEBUG com.example.swap_data.config.CORSFilter - Filter 'CORSFilter' configured for use-Filter 'CORSFilter' configured for use
+2021-03-06 10:22:42.086 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]-Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-06 10:22:42.182 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'-Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-06 10:22:42.402 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]-Starting ProtocolHandler ["http-nio-8000"]
+2021-03-06 10:22:42.443 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''-Tomcat started on port(s): 8000 (http) with context path ''
+2021-03-06 10:22:42.444 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed-Context refreshed
+2021-03-06 10:22:42.463 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)-Found 1 custom documentation plugin(s)
+2021-03-06 10:22:42.501 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references-Scanning for api listing references
+2021-03-06 10:22:42.834 [main] INFO  com.example.swap_data.SwapDataApplication - Started SwapDataApplication in 6.499 seconds (JVM running for 8.195)-Started SwapDataApplication in 6.499 seconds (JVM running for 8.195)
+2021-03-06 10:22:55.880 [http-nio-8000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-06 10:22:55.881 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'-Initializing Servlet 'dispatcherServlet'
+2021-03-06 10:22:55.882 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms-Completed initialization in 1 ms
+2021-03-06 10:22:56.686 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-06 10:22:56.705 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-06 10:23:16.004 [http-nio-8000-exec-9] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-account:admin-/login param-account:admin
+2021-03-06 10:23:16.004 [http-nio-8000-exec-9] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-password：21232f297a57a5a743894a0e4a801fc3-/login param-password：21232f297a57a5a743894a0e4a801fc3
+2021-03-06 10:23:16.032 [http-nio-8000-exec-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...-HikariPool-1 - Starting...
+2021-03-06 10:23:16.630 [http-nio-8000-exec-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.-HikariPool-1 - Start completed.
+2021-03-06 10:23:16.639 [http-nio-8000-exec-9] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-06 10:23:16.677 [http-nio-8000-exec-9] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-06 10:23:16.723 [http-nio-8000-exec-9] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-06 10:23:16.731 [http-nio-8000-exec-9] INFO  com.example.swap_data.interceptor.JwtInterceptor - mysql password：21232f297a57a5a743894a0e4a801fc3-mysql password：21232f297a57a5a743894a0e4a801fc3
+2021-03-06 10:23:16.731 [http-nio-8000-exec-9] INFO  com.example.swap_data.interceptor.JwtInterceptor - user password：21232f297a57a5a743894a0e4a801fc3-user password：21232f297a57a5a743894a0e4a801fc3
+2021-03-06 10:26:44.626 [http-nio-8000-exec-3] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjE0OTk5MTk2fQ.vz7pnn1nlshYv8hI8E2AHMBsT4-30r2XhL-yjT_LaG0-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjE0OTk5MTk2fQ.vz7pnn1nlshYv8hI8E2AHMBsT4-30r2XhL-yjT_LaG0
+2021-03-06 10:26:44.667 [http-nio-8000-exec-3] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-06 10:27:19.548 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjE0OTk5MTk2fQ.vz7pnn1nlshYv8hI8E2AHMBsT4-30r2XhL-yjT_LaG0-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjE0OTk5MTk2fQ.vz7pnn1nlshYv8hI8E2AHMBsT4-30r2XhL-yjT_LaG0
+2021-03-06 10:27:19.550 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-06 12:56:43.689 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m26s171ms).-HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m26s171ms).
+2021-03-06 13:43:24.827 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=46m41s141ms).-HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=46m41s141ms).
+2021-03-06 19:10:53.470 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m26s811ms).-HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m26s811ms).
+2021-03-07 04:45:19.095 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h34m25s626ms).-HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h34m25s626ms).
+2021-03-07 05:00:46.454 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m27s359ms).-HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m27s359ms).
+2021-03-08 10:05:31.072 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1d5h4m44s537ms).-HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1d5h4m44s537ms).
+2021-03-08 10:05:59.062 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Retrograde clock change detected (housekeeper delta=28s64ms), soft-evicting connections from pool.-HikariPool-1 - Retrograde clock change detected (housekeeper delta=28s64ms), soft-evicting connections from pool.
+2021-03-08 10:06:33.126 [http-nio-8000-exec-2] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:06:33.166 [http-nio-8000-exec-2] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:06:34.963 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:06:34.976 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:06:42.959 [http-nio-8000-exec-9] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-account:admin-/login param-account:admin
+2021-03-08 10:06:42.959 [http-nio-8000-exec-9] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-password：21232f297a57a5a743894a0e4a801fc3-/login param-password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:06:42.983 [http-nio-8000-exec-9] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:06:42.985 [http-nio-8000-exec-9] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:06:43.010 [http-nio-8000-exec-9] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:06:43.012 [http-nio-8000-exec-9] INFO  com.example.swap_data.interceptor.JwtInterceptor - mysql password：21232f297a57a5a743894a0e4a801fc3-mysql password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:06:43.012 [http-nio-8000-exec-9] INFO  com.example.swap_data.interceptor.JwtInterceptor - user password：21232f297a57a5a743894a0e4a801fc3-user password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:07:06.905 [http-nio-8000-exec-2] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：-获取到token：
+2021-03-08 10:07:06.968 [http-nio-8000-exec-2] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.] with root cause-Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.] with root cause
+com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.
+	at com.auth0.jwt.TokenUtils.splitToken(TokenUtils.java:21)
+	at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:27)
+	at com.auth0.jwt.JWT.decode(JWT.java:21)
+	at com.example.swap_data.common.JwtUtil.getUserNameByToken(JwtUtil.java:72)
+	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:35)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.example.swap_data.config.CORSFilter.doFilterInternal(CORSFilter.java:20)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2021-03-08 10:07:06.984 [http-nio-8000-exec-2] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：-获取到token：
+2021-03-08 10:07:06.987 [http-nio-8000-exec-2] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] threw exception-Servlet.service() for servlet [dispatcherServlet] threw exception
+com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.
+	at com.auth0.jwt.TokenUtils.splitToken(TokenUtils.java:21)
+	at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:27)
+	at com.auth0.jwt.JWT.decode(JWT.java:21)
+	at com.example.swap_data.common.JwtUtil.getUserNameByToken(JwtUtil.java:72)
+	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:35)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2021-03-08 10:07:06.989 [http-nio-8000-exec-2] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]-Exception Processing ErrorPage[errorCode=0, location=/error]
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.
+	at com.auth0.jwt.TokenUtils.splitToken(TokenUtils.java:21)
+	at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:27)
+	at com.auth0.jwt.JWT.decode(JWT.java:21)
+	at com.example.swap_data.common.JwtUtil.getUserNameByToken(JwtUtil.java:72)
+	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:35)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	... 39 common frames omitted
+2021-03-08 10:07:12.557 [http-nio-8000-exec-10] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjE1MTcxMDAzfQ.UhttI5bZZEELQFRv9Fagv3-Xj0rDhf4rEsL68GU5gsw"-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjE1MTcxMDAzfQ.UhttI5bZZEELQFRv9Fagv3-Xj0rDhf4rEsL68GU5gsw"
+2021-03-08 10:07:12.563 [http-nio-8000-exec-10] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-08 10:12:44.443 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'-Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-08 10:12:44.445 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...-HikariPool-1 - Shutdown initiated...
+2021-03-08 10:12:44.450 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.-HikariPool-1 - Shutdown completed.

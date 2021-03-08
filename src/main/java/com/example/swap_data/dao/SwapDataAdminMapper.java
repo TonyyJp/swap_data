@@ -11,6 +11,8 @@ public interface SwapDataAdminMapper {
 
     SwapDataAdmin selectByPrimaryKey(Long id);
 
+    SwapDataAdmin selectByAccount(String id);
+
     int updateByPrimaryKeySelective(SwapDataAdmin record);
 
     int updateByPrimaryKey(SwapDataAdmin record);

@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.swap_data.dao.SwapScooterMapper">
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapScooter">
+    <id column="scooter_id" jdbcType="INTEGER" property="scooterId" />
+    <result column="scooter_name" jdbcType="VARCHAR" property="scooterName" />
+    <result column="scooter_code" jdbcType="VARCHAR" property="scooterCode" />
+    <result column="license_plate" jdbcType="VARCHAR" property="licensePlate" />
+    <result column="imei" jdbcType="VARCHAR" property="imei" />
+    <result column="engine_code" jdbcType="VARCHAR" property="engineCode" />
+    <result column="channel_id" jdbcType="VARCHAR" property="channelId" />
+    <result column="scooter_version" jdbcType="VARCHAR" property="scooterVersion" />
+    <result column="scooter_status" jdbcType="CHAR" property="scooterStatus" />
+    <result column="connect_status" jdbcType="CHAR" property="connectStatus" />
+    <result column="sell_channel" jdbcType="CHAR" property="sellChannel" />
+    <result column="sell_status" jdbcType="CHAR" property="sellStatus" />
+    <result column="init_status" jdbcType="CHAR" property="initStatus" />
+    <result column="run_status" jdbcType="CHAR" property="runStatus" />
+    <result column="gps_status" jdbcType="CHAR" property="gpsStatus" />
+    <result column="lock_status" jdbcType="CHAR" property="lockStatus" />
+    <result column="security_lock" jdbcType="CHAR" property="securityLock" />
+    <result column="arrearage_lock" jdbcType="CHAR" property="arrearageLock" />
+    <result column="battery_number" jdbcType="INTEGER" property="batteryNumber" />
+    <result column="mileage_value" jdbcType="INTEGER" property="mileageValue" />
+    <result column="read_time" jdbcType="TIMESTAMP" property="readTime" />
+    <result column="init_read" jdbcType="INTEGER" property="initRead" />
+    <result column="init_time" jdbcType="TIMESTAMP" property="initTime" />
+    <result column="supplier_id" jdbcType="INTEGER" property="supplierId" />
+    <result column="produce_time" jdbcType="DATE" property="produceTime" />
+    <result column="expiration_date" jdbcType="INTEGER" property="expirationDate" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="tenant_id" jdbcType="INTEGER" property="tenantId" />
+    <result column="software_version" jdbcType="VARCHAR" property="softwareVersion" />
+    <result column="hardware_version" jdbcType="VARCHAR" property="hardwareVersion" />
+    <result column="vin" jdbcType="VARCHAR" property="vin" />
+    <result column="motor_code" jdbcType="VARCHAR" property="motorCode" />
+    <result column="color" jdbcType="CHAR" property="color" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    scooter_id, scooter_name, scooter_code, license_plate, imei, engine_code, channel_id, 
+    scooter_version, scooter_status, connect_status, sell_channel, sell_status, init_status, 
+    run_status, gps_status, lock_status, security_lock, arrearage_lock, battery_number, 
+    mileage_value, read_time, init_read, init_time, supplier_id, produce_time, expiration_date, 
+    create_user, create_time, update_user, update_time, remark, del_flag, user_id, tenant_id, 
+    software_version, hardware_version, vin, motor_code, color
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_scooter
+    where scooter_id = #{scooterId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_scooter
+    where scooter_id = #{scooterId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapScooter">
+    insert into swap_scooter (scooter_id, scooter_name, scooter_code, 
+      license_plate, imei, engine_code, 
+      channel_id, scooter_version, scooter_status, 
+      connect_status, sell_channel, sell_status, 
+      init_status, run_status, gps_status, 
+      lock_status, security_lock, arrearage_lock, 
+      battery_number, mileage_value, read_time, 
+      init_read, init_time, supplier_id, 
+      produce_time, expiration_date, create_user, 
+      create_time, update_user, update_time, 
+      remark, del_flag, user_id, 
+      tenant_id, software_version, hardware_version, 
+      vin, motor_code, color)
+    values (#{scooterId,jdbcType=INTEGER}, #{scooterName,jdbcType=VARCHAR}, #{scooterCode,jdbcType=VARCHAR}, 
+      #{licensePlate,jdbcType=VARCHAR}, #{imei,jdbcType=VARCHAR}, #{engineCode,jdbcType=VARCHAR}, 
+      #{channelId,jdbcType=VARCHAR}, #{scooterVersion,jdbcType=VARCHAR}, #{scooterStatus,jdbcType=CHAR}, 
+      #{connectStatus,jdbcType=CHAR}, #{sellChannel,jdbcType=CHAR}, #{sellStatus,jdbcType=CHAR}, 
+      #{initStatus,jdbcType=CHAR}, #{runStatus,jdbcType=CHAR}, #{gpsStatus,jdbcType=CHAR}, 
+      #{lockStatus,jdbcType=CHAR}, #{securityLock,jdbcType=CHAR}, #{arrearageLock,jdbcType=CHAR}, 
+      #{batteryNumber,jdbcType=INTEGER}, #{mileageValue,jdbcType=INTEGER}, #{readTime,jdbcType=TIMESTAMP}, 
+      #{initRead,jdbcType=INTEGER}, #{initTime,jdbcType=TIMESTAMP}, #{supplierId,jdbcType=INTEGER}, 
+      #{produceTime,jdbcType=DATE}, #{expirationDate,jdbcType=INTEGER}, #{createUser,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{userId,jdbcType=INTEGER}, 
+      #{tenantId,jdbcType=INTEGER}, #{softwareVersion,jdbcType=VARCHAR}, #{hardwareVersion,jdbcType=VARCHAR}, 
+      #{vin,jdbcType=VARCHAR}, #{motorCode,jdbcType=VARCHAR}, #{color,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapScooter">
+    insert into swap_scooter
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scooterId != null">
+        scooter_id,
+      </if>
+      <if test="scooterName != null">
+        scooter_name,
+      </if>
+      <if test="scooterCode != null">
+        scooter_code,
+      </if>
+      <if test="licensePlate != null">
+        license_plate,
+      </if>
+      <if test="imei != null">
+        imei,
+      </if>
+      <if test="engineCode != null">
+        engine_code,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="scooterVersion != null">
+        scooter_version,
+      </if>
+      <if test="scooterStatus != null">
+        scooter_status,
+      </if>
+      <if test="connectStatus != null">
+        connect_status,
+      </if>
+      <if test="sellChannel != null">
+        sell_channel,
+      </if>
+      <if test="sellStatus != null">
+        sell_status,
+      </if>
+      <if test="initStatus != null">
+        init_status,
+      </if>
+      <if test="runStatus != null">
+        run_status,
+      </if>
+      <if test="gpsStatus != null">
+        gps_status,
+      </if>
+      <if test="lockStatus != null">
+        lock_status,
+      </if>
+      <if test="securityLock != null">
+        security_lock,
+      </if>
+      <if test="arrearageLock != null">
+        arrearage_lock,
+      </if>
+      <if test="batteryNumber != null">
+        battery_number,
+      </if>
+      <if test="mileageValue != null">
+        mileage_value,
+      </if>
+      <if test="readTime != null">
+        read_time,
+      </if>
+      <if test="initRead != null">
+        init_read,
+      </if>
+      <if test="initTime != null">
+        init_time,
+      </if>
+      <if test="supplierId != null">
+        supplier_id,
+      </if>
+      <if test="produceTime != null">
+        produce_time,
+      </if>
+      <if test="expirationDate != null">
+        expiration_date,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="softwareVersion != null">
+        software_version,
+      </if>
+      <if test="hardwareVersion != null">
+        hardware_version,
+      </if>
+      <if test="vin != null">
+        vin,
+      </if>
+      <if test="motorCode != null">
+        motor_code,
+      </if>
+      <if test="color != null">
+        color,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scooterId != null">
+        #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterName != null">
+        #{scooterName,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterCode != null">
+        #{scooterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="licensePlate != null">
+        #{licensePlate,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null">
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="engineCode != null">
+        #{engineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterVersion != null">
+        #{scooterVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterStatus != null">
+        #{scooterStatus,jdbcType=CHAR},
+      </if>
+      <if test="connectStatus != null">
+        #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="sellChannel != null">
+        #{sellChannel,jdbcType=CHAR},
+      </if>
+      <if test="sellStatus != null">
+        #{sellStatus,jdbcType=CHAR},
+      </if>
+      <if test="initStatus != null">
+        #{initStatus,jdbcType=CHAR},
+      </if>
+      <if test="runStatus != null">
+        #{runStatus,jdbcType=CHAR},
+      </if>
+      <if test="gpsStatus != null">
+        #{gpsStatus,jdbcType=CHAR},
+      </if>
+      <if test="lockStatus != null">
+        #{lockStatus,jdbcType=CHAR},
+      </if>
+      <if test="securityLock != null">
+        #{securityLock,jdbcType=CHAR},
+      </if>
+      <if test="arrearageLock != null">
+        #{arrearageLock,jdbcType=CHAR},
+      </if>
+      <if test="batteryNumber != null">
+        #{batteryNumber,jdbcType=INTEGER},
+      </if>
+      <if test="mileageValue != null">
+        #{mileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="readTime != null">
+        #{readTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="initRead != null">
+        #{initRead,jdbcType=INTEGER},
+      </if>
+      <if test="initTime != null">
+        #{initTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierId != null">
+        #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="produceTime != null">
+        #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="expirationDate != null">
+        #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=INTEGER},
+      </if>
+      <if test="softwareVersion != null">
+        #{softwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="hardwareVersion != null">
+        #{hardwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null">
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="motorCode != null">
+        #{motorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapScooter">
+    update swap_scooter
+    <set>
+      <if test="scooterName != null">
+        scooter_name = #{scooterName,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterCode != null">
+        scooter_code = #{scooterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="licensePlate != null">
+        license_plate = #{licensePlate,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null">
+        imei = #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="engineCode != null">
+        engine_code = #{engineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterVersion != null">
+        scooter_version = #{scooterVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterStatus != null">
+        scooter_status = #{scooterStatus,jdbcType=CHAR},
+      </if>
+      <if test="connectStatus != null">
+        connect_status = #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="sellChannel != null">
+        sell_channel = #{sellChannel,jdbcType=CHAR},
+      </if>
+      <if test="sellStatus != null">
+        sell_status = #{sellStatus,jdbcType=CHAR},
+      </if>
+      <if test="initStatus != null">
+        init_status = #{initStatus,jdbcType=CHAR},
+      </if>
+      <if test="runStatus != null">
+        run_status = #{runStatus,jdbcType=CHAR},
+      </if>
+      <if test="gpsStatus != null">
+        gps_status = #{gpsStatus,jdbcType=CHAR},
+      </if>
+      <if test="lockStatus != null">
+        lock_status = #{lockStatus,jdbcType=CHAR},
+      </if>
+      <if test="securityLock != null">
+        security_lock = #{securityLock,jdbcType=CHAR},
+      </if>
+      <if test="arrearageLock != null">
+        arrearage_lock = #{arrearageLock,jdbcType=CHAR},
+      </if>
+      <if test="batteryNumber != null">
+        battery_number = #{batteryNumber,jdbcType=INTEGER},
+      </if>
+      <if test="mileageValue != null">
+        mileage_value = #{mileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="readTime != null">
+        read_time = #{readTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="initRead != null">
+        init_read = #{initRead,jdbcType=INTEGER},
+      </if>
+      <if test="initTime != null">
+        init_time = #{initTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierId != null">
+        supplier_id = #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="produceTime != null">
+        produce_time = #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="expirationDate != null">
+        expiration_date = #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=INTEGER},
+      </if>
+      <if test="softwareVersion != null">
+        software_version = #{softwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="hardwareVersion != null">
+        hardware_version = #{hardwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null">
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="motorCode != null">
+        motor_code = #{motorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        color = #{color,jdbcType=CHAR},
+      </if>
+    </set>
+    where scooter_id = #{scooterId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapScooter">
+    update swap_scooter
+    set scooter_name = #{scooterName,jdbcType=VARCHAR},
+      scooter_code = #{scooterCode,jdbcType=VARCHAR},
+      license_plate = #{licensePlate,jdbcType=VARCHAR},
+      imei = #{imei,jdbcType=VARCHAR},
+      engine_code = #{engineCode,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=VARCHAR},
+      scooter_version = #{scooterVersion,jdbcType=VARCHAR},
+      scooter_status = #{scooterStatus,jdbcType=CHAR},
+      connect_status = #{connectStatus,jdbcType=CHAR},
+      sell_channel = #{sellChannel,jdbcType=CHAR},
+      sell_status = #{sellStatus,jdbcType=CHAR},
+      init_status = #{initStatus,jdbcType=CHAR},
+      run_status = #{runStatus,jdbcType=CHAR},
+      gps_status = #{gpsStatus,jdbcType=CHAR},
+      lock_status = #{lockStatus,jdbcType=CHAR},
+      security_lock = #{securityLock,jdbcType=CHAR},
+      arrearage_lock = #{arrearageLock,jdbcType=CHAR},
+      battery_number = #{batteryNumber,jdbcType=INTEGER},
+      mileage_value = #{mileageValue,jdbcType=INTEGER},
+      read_time = #{readTime,jdbcType=TIMESTAMP},
+      init_read = #{initRead,jdbcType=INTEGER},
+      init_time = #{initTime,jdbcType=TIMESTAMP},
+      supplier_id = #{supplierId,jdbcType=INTEGER},
+      produce_time = #{produceTime,jdbcType=DATE},
+      expiration_date = #{expirationDate,jdbcType=INTEGER},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      tenant_id = #{tenantId,jdbcType=INTEGER},
+      software_version = #{softwareVersion,jdbcType=VARCHAR},
+      hardware_version = #{hardwareVersion,jdbcType=VARCHAR},
+      vin = #{vin,jdbcType=VARCHAR},
+      motor_code = #{motorCode,jdbcType=VARCHAR},
+      color = #{color,jdbcType=CHAR}
+    where scooter_id = #{scooterId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapScooter">
+    <id column="scooter_id" jdbcType="INTEGER" property="scooterId" />
+    <result column="scooter_name" jdbcType="VARCHAR" property="scooterName" />
+    <result column="scooter_code" jdbcType="VARCHAR" property="scooterCode" />
+    <result column="license_plate" jdbcType="VARCHAR" property="licensePlate" />
+    <result column="imei" jdbcType="VARCHAR" property="imei" />
+    <result column="engine_code" jdbcType="VARCHAR" property="engineCode" />
+    <result column="channel_id" jdbcType="VARCHAR" property="channelId" />
+    <result column="scooter_version" jdbcType="VARCHAR" property="scooterVersion" />
+    <result column="scooter_status" jdbcType="CHAR" property="scooterStatus" />
+    <result column="connect_status" jdbcType="CHAR" property="connectStatus" />
+    <result column="sell_channel" jdbcType="CHAR" property="sellChannel" />
+    <result column="sell_status" jdbcType="CHAR" property="sellStatus" />
+    <result column="init_status" jdbcType="CHAR" property="initStatus" />
+    <result column="run_status" jdbcType="CHAR" property="runStatus" />
+    <result column="gps_status" jdbcType="CHAR" property="gpsStatus" />
+    <result column="lock_status" jdbcType="CHAR" property="lockStatus" />
+    <result column="security_lock" jdbcType="CHAR" property="securityLock" />
+    <result column="arrearage_lock" jdbcType="CHAR" property="arrearageLock" />
+    <result column="battery_number" jdbcType="INTEGER" property="batteryNumber" />
+    <result column="mileage_value" jdbcType="INTEGER" property="mileageValue" />
+    <result column="read_time" jdbcType="TIMESTAMP" property="readTime" />
+    <result column="init_read" jdbcType="INTEGER" property="initRead" />
+    <result column="init_time" jdbcType="TIMESTAMP" property="initTime" />
+    <result column="supplier_id" jdbcType="INTEGER" property="supplierId" />
+    <result column="produce_time" jdbcType="DATE" property="produceTime" />
+    <result column="expiration_date" jdbcType="INTEGER" property="expirationDate" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="tenant_id" jdbcType="INTEGER" property="tenantId" />
+    <result column="software_version" jdbcType="VARCHAR" property="softwareVersion" />
+    <result column="hardware_version" jdbcType="VARCHAR" property="hardwareVersion" />
+    <result column="vin" jdbcType="VARCHAR" property="vin" />
+    <result column="motor_code" jdbcType="VARCHAR" property="motorCode" />
+    <result column="color" jdbcType="CHAR" property="color" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    scooter_id, scooter_name, scooter_code, license_plate, imei, engine_code, channel_id, 
+    scooter_version, scooter_status, connect_status, sell_channel, sell_status, init_status, 
+    run_status, gps_status, lock_status, security_lock, arrearage_lock, battery_number, 
+    mileage_value, read_time, init_read, init_time, supplier_id, produce_time, expiration_date, 
+    create_user, create_time, update_user, update_time, remark, del_flag, user_id, tenant_id, 
+    software_version, hardware_version, vin, motor_code, color
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_scooter
+    where scooter_id = #{scooterId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_scooter
+    where scooter_id = #{scooterId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapScooter">
+    insert into swap_scooter (scooter_id, scooter_name, scooter_code, 
+      license_plate, imei, engine_code, 
+      channel_id, scooter_version, scooter_status, 
+      connect_status, sell_channel, sell_status, 
+      init_status, run_status, gps_status, 
+      lock_status, security_lock, arrearage_lock, 
+      battery_number, mileage_value, read_time, 
+      init_read, init_time, supplier_id, 
+      produce_time, expiration_date, create_user, 
+      create_time, update_user, update_time, 
+      remark, del_flag, user_id, 
+      tenant_id, software_version, hardware_version, 
+      vin, motor_code, color)
+    values (#{scooterId,jdbcType=INTEGER}, #{scooterName,jdbcType=VARCHAR}, #{scooterCode,jdbcType=VARCHAR}, 
+      #{licensePlate,jdbcType=VARCHAR}, #{imei,jdbcType=VARCHAR}, #{engineCode,jdbcType=VARCHAR}, 
+      #{channelId,jdbcType=VARCHAR}, #{scooterVersion,jdbcType=VARCHAR}, #{scooterStatus,jdbcType=CHAR}, 
+      #{connectStatus,jdbcType=CHAR}, #{sellChannel,jdbcType=CHAR}, #{sellStatus,jdbcType=CHAR}, 
+      #{initStatus,jdbcType=CHAR}, #{runStatus,jdbcType=CHAR}, #{gpsStatus,jdbcType=CHAR}, 
+      #{lockStatus,jdbcType=CHAR}, #{securityLock,jdbcType=CHAR}, #{arrearageLock,jdbcType=CHAR}, 
+      #{batteryNumber,jdbcType=INTEGER}, #{mileageValue,jdbcType=INTEGER}, #{readTime,jdbcType=TIMESTAMP}, 
+      #{initRead,jdbcType=INTEGER}, #{initTime,jdbcType=TIMESTAMP}, #{supplierId,jdbcType=INTEGER}, 
+      #{produceTime,jdbcType=DATE}, #{expirationDate,jdbcType=INTEGER}, #{createUser,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{userId,jdbcType=INTEGER}, 
+      #{tenantId,jdbcType=INTEGER}, #{softwareVersion,jdbcType=VARCHAR}, #{hardwareVersion,jdbcType=VARCHAR}, 
+      #{vin,jdbcType=VARCHAR}, #{motorCode,jdbcType=VARCHAR}, #{color,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapScooter">
+    insert into swap_scooter
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scooterId != null">
+        scooter_id,
+      </if>
+      <if test="scooterName != null">
+        scooter_name,
+      </if>
+      <if test="scooterCode != null">
+        scooter_code,
+      </if>
+      <if test="licensePlate != null">
+        license_plate,
+      </if>
+      <if test="imei != null">
+        imei,
+      </if>
+      <if test="engineCode != null">
+        engine_code,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="scooterVersion != null">
+        scooter_version,
+      </if>
+      <if test="scooterStatus != null">
+        scooter_status,
+      </if>
+      <if test="connectStatus != null">
+        connect_status,
+      </if>
+      <if test="sellChannel != null">
+        sell_channel,
+      </if>
+      <if test="sellStatus != null">
+        sell_status,
+      </if>
+      <if test="initStatus != null">
+        init_status,
+      </if>
+      <if test="runStatus != null">
+        run_status,
+      </if>
+      <if test="gpsStatus != null">
+        gps_status,
+      </if>
+      <if test="lockStatus != null">
+        lock_status,
+      </if>
+      <if test="securityLock != null">
+        security_lock,
+      </if>
+      <if test="arrearageLock != null">
+        arrearage_lock,
+      </if>
+      <if test="batteryNumber != null">
+        battery_number,
+      </if>
+      <if test="mileageValue != null">
+        mileage_value,
+      </if>
+      <if test="readTime != null">
+        read_time,
+      </if>
+      <if test="initRead != null">
+        init_read,
+      </if>
+      <if test="initTime != null">
+        init_time,
+      </if>
+      <if test="supplierId != null">
+        supplier_id,
+      </if>
+      <if test="produceTime != null">
+        produce_time,
+      </if>
+      <if test="expirationDate != null">
+        expiration_date,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="softwareVersion != null">
+        software_version,
+      </if>
+      <if test="hardwareVersion != null">
+        hardware_version,
+      </if>
+      <if test="vin != null">
+        vin,
+      </if>
+      <if test="motorCode != null">
+        motor_code,
+      </if>
+      <if test="color != null">
+        color,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scooterId != null">
+        #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterName != null">
+        #{scooterName,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterCode != null">
+        #{scooterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="licensePlate != null">
+        #{licensePlate,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null">
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="engineCode != null">
+        #{engineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterVersion != null">
+        #{scooterVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterStatus != null">
+        #{scooterStatus,jdbcType=CHAR},
+      </if>
+      <if test="connectStatus != null">
+        #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="sellChannel != null">
+        #{sellChannel,jdbcType=CHAR},
+      </if>
+      <if test="sellStatus != null">
+        #{sellStatus,jdbcType=CHAR},
+      </if>
+      <if test="initStatus != null">
+        #{initStatus,jdbcType=CHAR},
+      </if>
+      <if test="runStatus != null">
+        #{runStatus,jdbcType=CHAR},
+      </if>
+      <if test="gpsStatus != null">
+        #{gpsStatus,jdbcType=CHAR},
+      </if>
+      <if test="lockStatus != null">
+        #{lockStatus,jdbcType=CHAR},
+      </if>
+      <if test="securityLock != null">
+        #{securityLock,jdbcType=CHAR},
+      </if>
+      <if test="arrearageLock != null">
+        #{arrearageLock,jdbcType=CHAR},
+      </if>
+      <if test="batteryNumber != null">
+        #{batteryNumber,jdbcType=INTEGER},
+      </if>
+      <if test="mileageValue != null">
+        #{mileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="readTime != null">
+        #{readTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="initRead != null">
+        #{initRead,jdbcType=INTEGER},
+      </if>
+      <if test="initTime != null">
+        #{initTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierId != null">
+        #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="produceTime != null">
+        #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="expirationDate != null">
+        #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=INTEGER},
+      </if>
+      <if test="softwareVersion != null">
+        #{softwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="hardwareVersion != null">
+        #{hardwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null">
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="motorCode != null">
+        #{motorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapScooter">
+    update swap_scooter
+    <set>
+      <if test="scooterName != null">
+        scooter_name = #{scooterName,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterCode != null">
+        scooter_code = #{scooterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="licensePlate != null">
+        license_plate = #{licensePlate,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null">
+        imei = #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="engineCode != null">
+        engine_code = #{engineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterVersion != null">
+        scooter_version = #{scooterVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="scooterStatus != null">
+        scooter_status = #{scooterStatus,jdbcType=CHAR},
+      </if>
+      <if test="connectStatus != null">
+        connect_status = #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="sellChannel != null">
+        sell_channel = #{sellChannel,jdbcType=CHAR},
+      </if>
+      <if test="sellStatus != null">
+        sell_status = #{sellStatus,jdbcType=CHAR},
+      </if>
+      <if test="initStatus != null">
+        init_status = #{initStatus,jdbcType=CHAR},
+      </if>
+      <if test="runStatus != null">
+        run_status = #{runStatus,jdbcType=CHAR},
+      </if>
+      <if test="gpsStatus != null">
+        gps_status = #{gpsStatus,jdbcType=CHAR},
+      </if>
+      <if test="lockStatus != null">
+        lock_status = #{lockStatus,jdbcType=CHAR},
+      </if>
+      <if test="securityLock != null">
+        security_lock = #{securityLock,jdbcType=CHAR},
+      </if>
+      <if test="arrearageLock != null">
+        arrearage_lock = #{arrearageLock,jdbcType=CHAR},
+      </if>
+      <if test="batteryNumber != null">
+        battery_number = #{batteryNumber,jdbcType=INTEGER},
+      </if>
+      <if test="mileageValue != null">
+        mileage_value = #{mileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="readTime != null">
+        read_time = #{readTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="initRead != null">
+        init_read = #{initRead,jdbcType=INTEGER},
+      </if>
+      <if test="initTime != null">
+        init_time = #{initTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierId != null">
+        supplier_id = #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="produceTime != null">
+        produce_time = #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="expirationDate != null">
+        expiration_date = #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=INTEGER},
+      </if>
+      <if test="softwareVersion != null">
+        software_version = #{softwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="hardwareVersion != null">
+        hardware_version = #{hardwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null">
+        vin = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="motorCode != null">
+        motor_code = #{motorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        color = #{color,jdbcType=CHAR},
+      </if>
+    </set>
+    where scooter_id = #{scooterId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapScooter">
+    update swap_scooter
+    set scooter_name = #{scooterName,jdbcType=VARCHAR},
+      scooter_code = #{scooterCode,jdbcType=VARCHAR},
+      license_plate = #{licensePlate,jdbcType=VARCHAR},
+      imei = #{imei,jdbcType=VARCHAR},
+      engine_code = #{engineCode,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=VARCHAR},
+      scooter_version = #{scooterVersion,jdbcType=VARCHAR},
+      scooter_status = #{scooterStatus,jdbcType=CHAR},
+      connect_status = #{connectStatus,jdbcType=CHAR},
+      sell_channel = #{sellChannel,jdbcType=CHAR},
+      sell_status = #{sellStatus,jdbcType=CHAR},
+      init_status = #{initStatus,jdbcType=CHAR},
+      run_status = #{runStatus,jdbcType=CHAR},
+      gps_status = #{gpsStatus,jdbcType=CHAR},
+      lock_status = #{lockStatus,jdbcType=CHAR},
+      security_lock = #{securityLock,jdbcType=CHAR},
+      arrearage_lock = #{arrearageLock,jdbcType=CHAR},
+      battery_number = #{batteryNumber,jdbcType=INTEGER},
+      mileage_value = #{mileageValue,jdbcType=INTEGER},
+      read_time = #{readTime,jdbcType=TIMESTAMP},
+      init_read = #{initRead,jdbcType=INTEGER},
+      init_time = #{initTime,jdbcType=TIMESTAMP},
+      supplier_id = #{supplierId,jdbcType=INTEGER},
+      produce_time = #{produceTime,jdbcType=DATE},
+      expiration_date = #{expirationDate,jdbcType=INTEGER},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      tenant_id = #{tenantId,jdbcType=INTEGER},
+      software_version = #{softwareVersion,jdbcType=VARCHAR},
+      hardware_version = #{hardwareVersion,jdbcType=VARCHAR},
+      vin = #{vin,jdbcType=VARCHAR},
+      motor_code = #{motorCode,jdbcType=VARCHAR},
+      color = #{color,jdbcType=CHAR}
+    where scooter_id = #{scooterId,jdbcType=INTEGER}
+  </update>
+</mapper>

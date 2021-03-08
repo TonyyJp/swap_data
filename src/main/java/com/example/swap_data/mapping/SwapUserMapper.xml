@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.swap_data.dao.SwapUserMapper">
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapUser">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="job" jdbcType="VARCHAR" property="job" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="emergency_contact" jdbcType="VARCHAR" property="emergencyContact" />
+    <result column="emergency_phone" jdbcType="VARCHAR" property="emergencyPhone" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="user_status" jdbcType="VARCHAR" property="userStatus" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="firebase_token" jdbcType="VARCHAR" property="firebaseToken" />
+    <result column="login_date" jdbcType="TIMESTAMP" property="loginDate" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="check_email" jdbcType="CHAR" property="checkEmail" />
+    <result column="facebook_id" jdbcType="VARCHAR" property="facebookId" />
+    <result column="facebook_email" jdbcType="VARCHAR" property="facebookEmail" />
+    <result column="facebook_nickname" jdbcType="VARCHAR" property="facebookNickname" />
+    <result column="google_id" jdbcType="VARCHAR" property="googleId" />
+    <result column="google_nickname" jdbcType="VARCHAR" property="googleNickname" />
+    <result column="google_email" jdbcType="VARCHAR" property="googleEmail" />
+    <result column="apple_id" jdbcType="VARCHAR" property="appleId" />
+    <result column="apple_nickname" jdbcType="VARCHAR" property="appleNickname" />
+    <result column="apple_email" jdbcType="VARCHAR" property="appleEmail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, login_name, username, password, email, phone_number, job, sex, birthday, 
+    emergency_contact, emergency_phone, salt, avatar, user_status, login_ip, firebase_token, 
+    login_date, create_user, create_time, update_user, update_time, del_flag, remark, 
+    idcard, address, check_email, facebook_id, facebook_email, facebook_nickname, google_id, 
+    google_nickname, google_email, apple_id, apple_nickname, apple_email
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapUser">
+    insert into swap_user (user_id, login_name, username, 
+      password, email, phone_number, 
+      job, sex, birthday, emergency_contact, 
+      emergency_phone, salt, avatar, 
+      user_status, login_ip, firebase_token, 
+      login_date, create_user, create_time, 
+      update_user, update_time, del_flag, 
+      remark, idcard, address, 
+      check_email, facebook_id, facebook_email, 
+      facebook_nickname, google_id, google_nickname, 
+      google_email, apple_id, apple_nickname, 
+      apple_email)
+    values (#{userId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
+      #{job,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{birthday,jdbcType=DATE}, #{emergencyContact,jdbcType=VARCHAR}, 
+      #{emergencyPhone,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, 
+      #{userStatus,jdbcType=VARCHAR}, #{loginIp,jdbcType=VARCHAR}, #{firebaseToken,jdbcType=VARCHAR}, 
+      #{loginDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{checkEmail,jdbcType=CHAR}, #{facebookId,jdbcType=VARCHAR}, #{facebookEmail,jdbcType=VARCHAR}, 
+      #{facebookNickname,jdbcType=VARCHAR}, #{googleId,jdbcType=VARCHAR}, #{googleNickname,jdbcType=VARCHAR}, 
+      #{googleEmail,jdbcType=VARCHAR}, #{appleId,jdbcType=VARCHAR}, #{appleNickname,jdbcType=VARCHAR}, 
+      #{appleEmail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapUser">
+    insert into swap_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phoneNumber != null">
+        phone_number,
+      </if>
+      <if test="job != null">
+        job,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="emergencyContact != null">
+        emergency_contact,
+      </if>
+      <if test="emergencyPhone != null">
+        emergency_phone,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="userStatus != null">
+        user_status,
+      </if>
+      <if test="loginIp != null">
+        login_ip,
+      </if>
+      <if test="firebaseToken != null">
+        firebase_token,
+      </if>
+      <if test="loginDate != null">
+        login_date,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="checkEmail != null">
+        check_email,
+      </if>
+      <if test="facebookId != null">
+        facebook_id,
+      </if>
+      <if test="facebookEmail != null">
+        facebook_email,
+      </if>
+      <if test="facebookNickname != null">
+        facebook_nickname,
+      </if>
+      <if test="googleId != null">
+        google_id,
+      </if>
+      <if test="googleNickname != null">
+        google_nickname,
+      </if>
+      <if test="googleEmail != null">
+        google_email,
+      </if>
+      <if test="appleId != null">
+        apple_id,
+      </if>
+      <if test="appleNickname != null">
+        apple_nickname,
+      </if>
+      <if test="appleEmail != null">
+        apple_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="emergencyContact != null">
+        #{emergencyContact,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyPhone != null">
+        #{emergencyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="loginIp != null">
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="firebaseToken != null">
+        #{firebaseToken,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null">
+        #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="checkEmail != null">
+        #{checkEmail,jdbcType=CHAR},
+      </if>
+      <if test="facebookId != null">
+        #{facebookId,jdbcType=VARCHAR},
+      </if>
+      <if test="facebookEmail != null">
+        #{facebookEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="facebookNickname != null">
+        #{facebookNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="googleId != null">
+        #{googleId,jdbcType=VARCHAR},
+      </if>
+      <if test="googleNickname != null">
+        #{googleNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="googleEmail != null">
+        #{googleEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="appleId != null">
+        #{appleId,jdbcType=VARCHAR},
+      </if>
+      <if test="appleNickname != null">
+        #{appleNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="appleEmail != null">
+        #{appleEmail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapUser">
+    update swap_user
+    <set>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        job = #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="emergencyContact != null">
+        emergency_contact = #{emergencyContact,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyPhone != null">
+        emergency_phone = #{emergencyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        user_status = #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="loginIp != null">
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="firebaseToken != null">
+        firebase_token = #{firebaseToken,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null">
+        login_date = #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="checkEmail != null">
+        check_email = #{checkEmail,jdbcType=CHAR},
+      </if>
+      <if test="facebookId != null">
+        facebook_id = #{facebookId,jdbcType=VARCHAR},
+      </if>
+      <if test="facebookEmail != null">
+        facebook_email = #{facebookEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="facebookNickname != null">
+        facebook_nickname = #{facebookNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="googleId != null">
+        google_id = #{googleId,jdbcType=VARCHAR},
+      </if>
+      <if test="googleNickname != null">
+        google_nickname = #{googleNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="googleEmail != null">
+        google_email = #{googleEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="appleId != null">
+        apple_id = #{appleId,jdbcType=VARCHAR},
+      </if>
+      <if test="appleNickname != null">
+        apple_nickname = #{appleNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="appleEmail != null">
+        apple_email = #{appleEmail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapUser">
+    update swap_user
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      job = #{job,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      emergency_contact = #{emergencyContact,jdbcType=VARCHAR},
+      emergency_phone = #{emergencyPhone,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      user_status = #{userStatus,jdbcType=VARCHAR},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      firebase_token = #{firebaseToken,jdbcType=VARCHAR},
+      login_date = #{loginDate,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      check_email = #{checkEmail,jdbcType=CHAR},
+      facebook_id = #{facebookId,jdbcType=VARCHAR},
+      facebook_email = #{facebookEmail,jdbcType=VARCHAR},
+      facebook_nickname = #{facebookNickname,jdbcType=VARCHAR},
+      google_id = #{googleId,jdbcType=VARCHAR},
+      google_nickname = #{googleNickname,jdbcType=VARCHAR},
+      google_email = #{googleEmail,jdbcType=VARCHAR},
+      apple_id = #{appleId,jdbcType=VARCHAR},
+      apple_nickname = #{appleNickname,jdbcType=VARCHAR},
+      apple_email = #{appleEmail,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapUser">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="job" jdbcType="VARCHAR" property="job" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="emergency_contact" jdbcType="VARCHAR" property="emergencyContact" />
+    <result column="emergency_phone" jdbcType="VARCHAR" property="emergencyPhone" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="user_status" jdbcType="VARCHAR" property="userStatus" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="firebase_token" jdbcType="VARCHAR" property="firebaseToken" />
+    <result column="login_date" jdbcType="TIMESTAMP" property="loginDate" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="check_email" jdbcType="CHAR" property="checkEmail" />
+    <result column="facebook_id" jdbcType="VARCHAR" property="facebookId" />
+    <result column="facebook_email" jdbcType="VARCHAR" property="facebookEmail" />
+    <result column="facebook_nickname" jdbcType="VARCHAR" property="facebookNickname" />
+    <result column="google_id" jdbcType="VARCHAR" property="googleId" />
+    <result column="google_nickname" jdbcType="VARCHAR" property="googleNickname" />
+    <result column="google_email" jdbcType="VARCHAR" property="googleEmail" />
+    <result column="apple_id" jdbcType="VARCHAR" property="appleId" />
+    <result column="apple_nickname" jdbcType="VARCHAR" property="appleNickname" />
+    <result column="apple_email" jdbcType="VARCHAR" property="appleEmail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, login_name, username, password, email, phone_number, job, sex, birthday, 
+    emergency_contact, emergency_phone, salt, avatar, user_status, login_ip, firebase_token, 
+    login_date, create_user, create_time, update_user, update_time, del_flag, remark, 
+    idcard, address, check_email, facebook_id, facebook_email, facebook_nickname, google_id, 
+    google_nickname, google_email, apple_id, apple_nickname, apple_email
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapUser">
+    insert into swap_user (user_id, login_name, username, 
+      password, email, phone_number, 
+      job, sex, birthday, emergency_contact, 
+      emergency_phone, salt, avatar, 
+      user_status, login_ip, firebase_token, 
+      login_date, create_user, create_time, 
+      update_user, update_time, del_flag, 
+      remark, idcard, address, 
+      check_email, facebook_id, facebook_email, 
+      facebook_nickname, google_id, google_nickname, 
+      google_email, apple_id, apple_nickname, 
+      apple_email)
+    values (#{userId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
+      #{job,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{birthday,jdbcType=DATE}, #{emergencyContact,jdbcType=VARCHAR}, 
+      #{emergencyPhone,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, 
+      #{userStatus,jdbcType=VARCHAR}, #{loginIp,jdbcType=VARCHAR}, #{firebaseToken,jdbcType=VARCHAR}, 
+      #{loginDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{checkEmail,jdbcType=CHAR}, #{facebookId,jdbcType=VARCHAR}, #{facebookEmail,jdbcType=VARCHAR}, 
+      #{facebookNickname,jdbcType=VARCHAR}, #{googleId,jdbcType=VARCHAR}, #{googleNickname,jdbcType=VARCHAR}, 
+      #{googleEmail,jdbcType=VARCHAR}, #{appleId,jdbcType=VARCHAR}, #{appleNickname,jdbcType=VARCHAR}, 
+      #{appleEmail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapUser">
+    insert into swap_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phoneNumber != null">
+        phone_number,
+      </if>
+      <if test="job != null">
+        job,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="emergencyContact != null">
+        emergency_contact,
+      </if>
+      <if test="emergencyPhone != null">
+        emergency_phone,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="userStatus != null">
+        user_status,
+      </if>
+      <if test="loginIp != null">
+        login_ip,
+      </if>
+      <if test="firebaseToken != null">
+        firebase_token,
+      </if>
+      <if test="loginDate != null">
+        login_date,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="checkEmail != null">
+        check_email,
+      </if>
+      <if test="facebookId != null">
+        facebook_id,
+      </if>
+      <if test="facebookEmail != null">
+        facebook_email,
+      </if>
+      <if test="facebookNickname != null">
+        facebook_nickname,
+      </if>
+      <if test="googleId != null">
+        google_id,
+      </if>
+      <if test="googleNickname != null">
+        google_nickname,
+      </if>
+      <if test="googleEmail != null">
+        google_email,
+      </if>
+      <if test="appleId != null">
+        apple_id,
+      </if>
+      <if test="appleNickname != null">
+        apple_nickname,
+      </if>
+      <if test="appleEmail != null">
+        apple_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="emergencyContact != null">
+        #{emergencyContact,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyPhone != null">
+        #{emergencyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="loginIp != null">
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="firebaseToken != null">
+        #{firebaseToken,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null">
+        #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="checkEmail != null">
+        #{checkEmail,jdbcType=CHAR},
+      </if>
+      <if test="facebookId != null">
+        #{facebookId,jdbcType=VARCHAR},
+      </if>
+      <if test="facebookEmail != null">
+        #{facebookEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="facebookNickname != null">
+        #{facebookNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="googleId != null">
+        #{googleId,jdbcType=VARCHAR},
+      </if>
+      <if test="googleNickname != null">
+        #{googleNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="googleEmail != null">
+        #{googleEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="appleId != null">
+        #{appleId,jdbcType=VARCHAR},
+      </if>
+      <if test="appleNickname != null">
+        #{appleNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="appleEmail != null">
+        #{appleEmail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapUser">
+    update swap_user
+    <set>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumber != null">
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        job = #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="emergencyContact != null">
+        emergency_contact = #{emergencyContact,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyPhone != null">
+        emergency_phone = #{emergencyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        user_status = #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="loginIp != null">
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="firebaseToken != null">
+        firebase_token = #{firebaseToken,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null">
+        login_date = #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="checkEmail != null">
+        check_email = #{checkEmail,jdbcType=CHAR},
+      </if>
+      <if test="facebookId != null">
+        facebook_id = #{facebookId,jdbcType=VARCHAR},
+      </if>
+      <if test="facebookEmail != null">
+        facebook_email = #{facebookEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="facebookNickname != null">
+        facebook_nickname = #{facebookNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="googleId != null">
+        google_id = #{googleId,jdbcType=VARCHAR},
+      </if>
+      <if test="googleNickname != null">
+        google_nickname = #{googleNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="googleEmail != null">
+        google_email = #{googleEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="appleId != null">
+        apple_id = #{appleId,jdbcType=VARCHAR},
+      </if>
+      <if test="appleNickname != null">
+        apple_nickname = #{appleNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="appleEmail != null">
+        apple_email = #{appleEmail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapUser">
+    update swap_user
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      job = #{job,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      emergency_contact = #{emergencyContact,jdbcType=VARCHAR},
+      emergency_phone = #{emergencyPhone,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      user_status = #{userStatus,jdbcType=VARCHAR},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      firebase_token = #{firebaseToken,jdbcType=VARCHAR},
+      login_date = #{loginDate,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      check_email = #{checkEmail,jdbcType=CHAR},
+      facebook_id = #{facebookId,jdbcType=VARCHAR},
+      facebook_email = #{facebookEmail,jdbcType=VARCHAR},
+      facebook_nickname = #{facebookNickname,jdbcType=VARCHAR},
+      google_id = #{googleId,jdbcType=VARCHAR},
+      google_nickname = #{googleNickname,jdbcType=VARCHAR},
+      google_email = #{googleEmail,jdbcType=VARCHAR},
+      apple_id = #{appleId,jdbcType=VARCHAR},
+      apple_nickname = #{appleNickname,jdbcType=VARCHAR},
+      apple_email = #{appleEmail,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

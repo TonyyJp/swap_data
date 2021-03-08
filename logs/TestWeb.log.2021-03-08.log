@@ -1,10 +1,474 @@
-2021-03-08 10:07:06.968 -- [http-nio-8000-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.] with root cause
-com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.
-	at com.auth0.jwt.TokenUtils.splitToken(TokenUtils.java:21)
-	at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:27)
-	at com.auth0.jwt.JWT.decode(JWT.java:21)
-	at com.example.swap_data.common.JwtUtil.getUserNameByToken(JwtUtil.java:72)
-	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:35)
+2021-03-08 10:12:54.118 [main] INFO  com.example.swap_data.SwapDataApplication - Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 97718 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 97718 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)
+2021-03-08 10:12:54.122 [main] DEBUG com.example.swap_data.SwapDataApplication - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-08 10:12:54.123 [main] INFO  com.example.swap_data.SwapDataApplication - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-08 10:12:56.020 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)-Tomcat initialized with port(s): 8000 (http)
+2021-03-08 10:12:56.035 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]-Initializing ProtocolHandler ["http-nio-8000"]
+2021-03-08 10:12:56.036 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]-Starting service [Tomcat]
+2021-03-08 10:12:56.036 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]-Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-08 10:12:56.129 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext-Initializing Spring embedded WebApplicationContext
+2021-03-08 10:12:56.129 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1853 ms-Root WebApplicationContext: initialization completed in 1853 ms
+2021-03-08 10:12:56.179 [main] DEBUG com.example.swap_data.config.CORSFilter - Filter 'CORSFilter' configured for use-Filter 'CORSFilter' configured for use
+2021-03-08 10:12:57.122 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]-Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-08 10:12:57.231 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'-Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-08 10:12:57.502 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]-Starting ProtocolHandler ["http-nio-8000"]
+2021-03-08 10:12:57.548 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''-Tomcat started on port(s): 8000 (http) with context path ''
+2021-03-08 10:12:57.550 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed-Context refreshed
+2021-03-08 10:12:57.589 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)-Found 1 custom documentation plugin(s)
+2021-03-08 10:12:57.639 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references-Scanning for api listing references
+2021-03-08 10:12:57.895 [main] INFO  com.example.swap_data.SwapDataApplication - Started SwapDataApplication in 5.053 seconds (JVM running for 6.586)-Started SwapDataApplication in 5.053 seconds (JVM running for 6.586)
+2021-03-08 10:13:01.203 [http-nio-8000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-08 10:13:01.210 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'-Initializing Servlet 'dispatcherServlet'
+2021-03-08 10:13:01.216 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms-Completed initialization in 5 ms
+2021-03-08 10:13:01.281 [http-nio-8000-exec-1] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjE1MTcxMDAzfQ.UhttI5bZZEELQFRv9Fagv3-Xj0rDhf4rEsL68GU5gsw"-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6MSwiZXhwIjoxNjE1MTcxMDAzfQ.UhttI5bZZEELQFRv9Fagv3-Xj0rDhf4rEsL68GU5gsw"
+2021-03-08 10:13:01.359 [http-nio-8000-exec-1] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：null-昵称：null
+2021-03-08 10:13:01.687 [http-nio-8000-exec-1] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:13:06.045 [http-nio-8000-exec-5] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:13:06.061 [http-nio-8000-exec-5] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:13:06.061 [http-nio-8000-exec-5] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:13:14.828 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-account:admin-/login param-account:admin
+2021-03-08 10:13:14.828 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-password：21232f297a57a5a743894a0e4a801fc3-/login param-password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:13:14.868 [http-nio-8000-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...-HikariPool-1 - Starting...
+2021-03-08 10:13:15.598 [http-nio-8000-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.-HikariPool-1 - Start completed.
+2021-03-08 10:13:15.610 [http-nio-8000-exec-7] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:13:15.656 [http-nio-8000-exec-7] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:13:15.748 [http-nio-8000-exec-7] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:13:15.755 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - mysql password：21232f297a57a5a743894a0e4a801fc3-mysql password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:13:15.755 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - user password：21232f297a57a5a743894a0e4a801fc3-user password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:13:28.280 [http-nio-8000-exec-8] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxMzk1LCJhY2NvdW50IjoiYWRtaW4ifQ.MyHDHVoxVHwubiVRTw_Tchl2kOiQxeFc0YDtMD5MT1w-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxMzk1LCJhY2NvdW50IjoiYWRtaW4ifQ.MyHDHVoxVHwubiVRTw_Tchl2kOiQxeFc0YDtMD5MT1w
+2021-03-08 10:13:28.281 [http-nio-8000-exec-8] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-08 10:13:28.283 [http-nio-8000-exec-8] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:14:47.606 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'-Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-08 10:14:47.609 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...-HikariPool-1 - Shutdown initiated...
+2021-03-08 10:14:47.622 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.-HikariPool-1 - Shutdown completed.
+2021-03-08 10:14:53.340 [main] INFO  com.example.swap_data.SwapDataApplication - Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 97795 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 97795 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)
+2021-03-08 10:14:53.345 [main] DEBUG com.example.swap_data.SwapDataApplication - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-08 10:14:53.347 [main] INFO  com.example.swap_data.SwapDataApplication - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-08 10:14:55.075 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)-Tomcat initialized with port(s): 8000 (http)
+2021-03-08 10:14:55.085 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]-Initializing ProtocolHandler ["http-nio-8000"]
+2021-03-08 10:14:55.085 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]-Starting service [Tomcat]
+2021-03-08 10:14:55.085 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]-Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-08 10:14:55.158 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext-Initializing Spring embedded WebApplicationContext
+2021-03-08 10:14:55.158 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1646 ms-Root WebApplicationContext: initialization completed in 1646 ms
+2021-03-08 10:14:55.197 [main] DEBUG com.example.swap_data.config.CORSFilter - Filter 'CORSFilter' configured for use-Filter 'CORSFilter' configured for use
+2021-03-08 10:14:55.998 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]-Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-08 10:14:56.094 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'-Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-08 10:14:56.277 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]-Starting ProtocolHandler ["http-nio-8000"]
+2021-03-08 10:14:56.317 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''-Tomcat started on port(s): 8000 (http) with context path ''
+2021-03-08 10:14:56.318 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed-Context refreshed
+2021-03-08 10:14:56.337 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)-Found 1 custom documentation plugin(s)
+2021-03-08 10:14:56.373 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references-Scanning for api listing references
+2021-03-08 10:14:56.661 [main] INFO  com.example.swap_data.SwapDataApplication - Started SwapDataApplication in 4.426 seconds (JVM running for 5.714)-Started SwapDataApplication in 4.426 seconds (JVM running for 5.714)
+2021-03-08 10:15:03.220 [http-nio-8000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-08 10:15:03.221 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'-Initializing Servlet 'dispatcherServlet'
+2021-03-08 10:15:03.222 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms-Completed initialization in 1 ms
+2021-03-08 10:15:03.845 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:15:03.865 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:15:03.866 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:15:10.496 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-account:admin-/login param-account:admin
+2021-03-08 10:15:10.496 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-password：21232f297a57a5a743894a0e4a801fc3-/login param-password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:15:10.526 [http-nio-8000-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...-HikariPool-1 - Starting...
+2021-03-08 10:15:11.054 [http-nio-8000-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.-HikariPool-1 - Start completed.
+2021-03-08 10:15:11.063 [http-nio-8000-exec-6] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:15:11.098 [http-nio-8000-exec-6] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:15:11.152 [http-nio-8000-exec-6] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:15:11.161 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - mysql password：21232f297a57a5a743894a0e4a801fc3-mysql password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:15:11.161 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - user password：21232f297a57a5a743894a0e4a801fc3-user password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:15:22.622 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNTExLCJhY2NvdW50IjoiYWRtaW4ifQ.cniIxtYO4EsFunNPAqQeSqPPMghpcQ-ofY8Y5fGUBms-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNTExLCJhY2NvdW50IjoiYWRtaW4ifQ.cniIxtYO4EsFunNPAqQeSqPPMghpcQ-ofY8Y5fGUBms
+2021-03-08 10:15:22.661 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-08 10:15:22.686 [http-nio-8000-exec-7] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:15:22.687 [http-nio-8000-exec-7] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:15:22.698 [http-nio-8000-exec-7] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:15:22.703 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 通过验证-通过验证
+2021-03-08 10:16:24.062 [http-nio-8000-exec-1] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token："eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNTExLCJhY2NvdW50IjoiYWRtaW4ifQ.cniIxtYO4EsFunNPAqQeSqPPMghpcQ-ofY8Y5fGUBms-获取到token："eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNTExLCJhY2NvdW50IjoiYWRtaW4ifQ.cniIxtYO4EsFunNPAqQeSqPPMghpcQ-ofY8Y5fGUBms
+2021-03-08 10:16:24.065 [http-nio-8000-exec-1] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-08 10:16:24.192 [http-nio-8000-exec-1] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:16:24.193 [http-nio-8000-exec-1] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:16:24.554 [http-nio-8000-exec-1] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:16:24.557 [http-nio-8000-exec-1] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:16:36.851 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token："eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNTExLCJhY2NvdW50IjoiYWRtaW4ifQ.cniIxtYO4EsFunNPAqQeSqPPMghpcQ-ofY8Y5fGUBms-获取到token："eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNTExLCJhY2NvdW50IjoiYWRtaW4ifQ.cniIxtYO4EsFunNPAqQeSqPPMghpcQ-ofY8Y5fGUBms
+2021-03-08 10:16:36.852 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-08 10:16:36.878 [http-nio-8000-exec-4] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:16:36.878 [http-nio-8000-exec-4] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:16:36.890 [http-nio-8000-exec-4] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:16:36.892 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:18:02.753 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'-Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-08 10:18:02.756 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...-HikariPool-1 - Shutdown initiated...
+2021-03-08 10:18:02.768 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.-HikariPool-1 - Shutdown completed.
+2021-03-08 10:18:10.295 [main] INFO  com.example.swap_data.SwapDataApplication - Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 97939 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 97939 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)
+2021-03-08 10:18:10.301 [main] DEBUG com.example.swap_data.SwapDataApplication - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-08 10:18:10.302 [main] INFO  com.example.swap_data.SwapDataApplication - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-08 10:18:13.397 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)-Tomcat initialized with port(s): 8000 (http)
+2021-03-08 10:18:13.407 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]-Initializing ProtocolHandler ["http-nio-8000"]
+2021-03-08 10:18:13.408 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]-Starting service [Tomcat]
+2021-03-08 10:18:13.408 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]-Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-08 10:18:13.483 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext-Initializing Spring embedded WebApplicationContext
+2021-03-08 10:18:13.483 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2652 ms-Root WebApplicationContext: initialization completed in 2652 ms
+2021-03-08 10:18:13.530 [main] DEBUG com.example.swap_data.config.CORSFilter - Filter 'CORSFilter' configured for use-Filter 'CORSFilter' configured for use
+2021-03-08 10:18:14.609 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]-Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-08 10:18:14.800 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'-Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-08 10:18:15.285 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]-Starting ProtocolHandler ["http-nio-8000"]
+2021-03-08 10:18:15.360 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''-Tomcat started on port(s): 8000 (http) with context path ''
+2021-03-08 10:18:15.367 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed-Context refreshed
+2021-03-08 10:18:15.413 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)-Found 1 custom documentation plugin(s)
+2021-03-08 10:18:15.470 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references-Scanning for api listing references
+2021-03-08 10:18:15.891 [main] INFO  com.example.swap_data.SwapDataApplication - Started SwapDataApplication in 6.87 seconds (JVM running for 8.343)-Started SwapDataApplication in 6.87 seconds (JVM running for 8.343)
+2021-03-08 10:18:22.481 [http-nio-8000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-08 10:18:22.482 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'-Initializing Servlet 'dispatcherServlet'
+2021-03-08 10:18:22.483 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms-Completed initialization in 1 ms
+2021-03-08 10:18:23.314 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:18:23.353 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:18:23.353 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:18:23.417 [http-nio-8000-exec-4] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] threw exception-Servlet.service() for servlet [dispatcherServlet] threw exception
+java.lang.RuntimeException: aaa
+	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2021-03-08 10:18:23.424 [http-nio-8000-exec-4] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]-Exception Processing ErrorPage[errorCode=0, location=/error]
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.RuntimeException: aaa
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: aaa
+	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	... 38 common frames omitted
+2021-03-08 10:18:32.918 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-account:admin-/login param-account:admin
+2021-03-08 10:18:32.919 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-password：21232f297a57a5a743894a0e4a801fc3-/login param-password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:18:32.949 [http-nio-8000-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...-HikariPool-1 - Starting...
+2021-03-08 10:18:33.860 [http-nio-8000-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.-HikariPool-1 - Start completed.
+2021-03-08 10:18:33.868 [http-nio-8000-exec-6] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:18:33.898 [http-nio-8000-exec-6] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:18:33.934 [http-nio-8000-exec-6] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:18:33.940 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - mysql password：21232f297a57a5a743894a0e4a801fc3-mysql password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:18:33.940 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - user password：21232f297a57a5a743894a0e4a801fc3-user password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:18:44.816 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNzEzLCJhY2NvdW50IjoiYWRtaW4ifQ.ew6MlSUvSg8hsOL7eLcshTFWKIiLld-Ojaq_q2gcdWs-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNzEzLCJhY2NvdW50IjoiYWRtaW4ifQ.ew6MlSUvSg8hsOL7eLcshTFWKIiLld-Ojaq_q2gcdWs
+2021-03-08 10:18:44.858 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-08 10:18:44.893 [http-nio-8000-exec-7] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:18:44.895 [http-nio-8000-exec-7] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:18:44.914 [http-nio-8000-exec-7] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:18:44.919 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 通过验证-通过验证
+2021-03-08 10:19:17.338 [http-nio-8000-exec-1] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:19:17.342 [http-nio-8000-exec-1] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:19:17.342 [http-nio-8000-exec-1] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:19:17.343 [http-nio-8000-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] threw exception-Servlet.service() for servlet [dispatcherServlet] threw exception
+java.lang.RuntimeException: aaa
+	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2021-03-08 10:19:17.351 [http-nio-8000-exec-1] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]-Exception Processing ErrorPage[errorCode=0, location=/error]
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.RuntimeException: aaa
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: aaa
+	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	... 38 common frames omitted
+2021-03-08 10:19:26.923 [http-nio-8000-exec-3] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNzEzLCJhY2NvdW50IjoiYWRtaW4ifQ.ew6MlSUvSg8hsOL7eLcshTFWKIiLld-Ojaq_q2gcdWs"-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNzEzLCJhY2NvdW50IjoiYWRtaW4ifQ.ew6MlSUvSg8hsOL7eLcshTFWKIiLld-Ojaq_q2gcdWs"
+2021-03-08 10:19:26.924 [http-nio-8000-exec-3] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-08 10:19:26.951 [http-nio-8000-exec-3] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:19:26.952 [http-nio-8000-exec-3] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:19:26.966 [http-nio-8000-exec-3] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:19:26.967 [http-nio-8000-exec-3] INFO  com.example.swap_data.interceptor.JwtInterceptor - 通过验证-通过验证
+2021-03-08 10:19:37.338 [http-nio-8000-exec-2] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNzEzLCJhY2NvdW50IjoiYWRtaW4ifQ.ew6MlSUvSg8hsOL7eLcshTFWKIiLld-Ojaq_q2gcdWs-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxNzEzLCJhY2NvdW50IjoiYWRtaW4ifQ.ew6MlSUvSg8hsOL7eLcshTFWKIiLld-Ojaq_q2gcdWs
+2021-03-08 10:19:37.340 [http-nio-8000-exec-2] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-08 10:19:37.375 [http-nio-8000-exec-2] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:19:37.375 [http-nio-8000-exec-2] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:19:37.385 [http-nio-8000-exec-2] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:19:37.387 [http-nio-8000-exec-2] INFO  com.example.swap_data.interceptor.JwtInterceptor - 通过验证-通过验证
+2021-03-08 10:20:01.779 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'-Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-08 10:20:01.781 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...-HikariPool-1 - Shutdown initiated...
+2021-03-08 10:20:01.793 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.-HikariPool-1 - Shutdown completed.
+2021-03-08 10:20:07.944 [main] INFO  com.example.swap_data.SwapDataApplication - Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 98027 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 98027 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)
+2021-03-08 10:20:07.950 [main] DEBUG com.example.swap_data.SwapDataApplication - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-08 10:20:07.951 [main] INFO  com.example.swap_data.SwapDataApplication - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-08 10:20:09.661 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)-Tomcat initialized with port(s): 8000 (http)
+2021-03-08 10:20:09.671 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]-Initializing ProtocolHandler ["http-nio-8000"]
+2021-03-08 10:20:09.671 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]-Starting service [Tomcat]
+2021-03-08 10:20:09.672 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]-Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-08 10:20:09.752 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext-Initializing Spring embedded WebApplicationContext
+2021-03-08 10:20:09.753 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1670 ms-Root WebApplicationContext: initialization completed in 1670 ms
+2021-03-08 10:20:09.794 [main] DEBUG com.example.swap_data.config.CORSFilter - Filter 'CORSFilter' configured for use-Filter 'CORSFilter' configured for use
+2021-03-08 10:20:10.569 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]-Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-08 10:20:10.675 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'-Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-08 10:20:10.865 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]-Starting ProtocolHandler ["http-nio-8000"]
+2021-03-08 10:20:10.898 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''-Tomcat started on port(s): 8000 (http) with context path ''
+2021-03-08 10:20:10.900 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed-Context refreshed
+2021-03-08 10:20:10.917 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)-Found 1 custom documentation plugin(s)
+2021-03-08 10:20:10.953 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references-Scanning for api listing references
+2021-03-08 10:20:11.186 [main] INFO  com.example.swap_data.SwapDataApplication - Started SwapDataApplication in 4.315 seconds (JVM running for 5.833)-Started SwapDataApplication in 4.315 seconds (JVM running for 5.833)
+2021-03-08 10:20:24.889 [http-nio-8000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'-Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-08 10:20:24.890 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'-Initializing Servlet 'dispatcherServlet'
+2021-03-08 10:20:24.891 [http-nio-8000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms-Completed initialization in 1 ms
+2021-03-08 10:20:25.426 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:20:25.439 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：null-获取到token：null
+2021-03-08 10:20:25.440 [http-nio-8000-exec-4] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:20:25.458 [http-nio-8000-exec-4] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] threw exception-Servlet.service() for servlet [dispatcherServlet] threw exception
+java.lang.RuntimeException: aaa
+	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2021-03-08 10:20:25.462 [http-nio-8000-exec-4] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]-Exception Processing ErrorPage[errorCode=0, location=/error]
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.RuntimeException: aaa
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.RuntimeException: aaa
+	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	... 38 common frames omitted
+2021-03-08 10:20:38.033 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-account:admin-/login param-account:admin
+2021-03-08 10:20:38.034 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - /login param-password：21232f297a57a5a743894a0e4a801fc3-/login param-password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:20:38.059 [http-nio-8000-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...-HikariPool-1 - Starting...
+2021-03-08 10:20:38.606 [http-nio-8000-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.-HikariPool-1 - Start completed.
+2021-03-08 10:20:38.617 [http-nio-8000-exec-6] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? -==>  Preparing: select id, account, password, name, create_user, create_time, update_user, update_time, status, is_deleted from swap_data_admin where account = ? 
+2021-03-08 10:20:38.647 [http-nio-8000-exec-6] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - ==> Parameters: admin(String)-==> Parameters: admin(String)
+2021-03-08 10:20:38.684 [http-nio-8000-exec-6] DEBUG c.e.s.dao.SwapDataAdminMapper.selectByAccount - <==      Total: 1-<==      Total: 1
+2021-03-08 10:20:38.690 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - mysql password：21232f297a57a5a743894a0e4a801fc3-mysql password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:20:38.690 [http-nio-8000-exec-6] INFO  com.example.swap_data.interceptor.JwtInterceptor - user password：21232f297a57a5a743894a0e4a801fc3-user password：21232f297a57a5a743894a0e4a801fc3
+2021-03-08 10:20:49.305 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxODM4LCJhY2NvdW50IjoiYWRtaW4ifQ.p40Fn8EdYPFrpRrv00O5nPJtWBJkINMbC4BW5NA3suc-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxODM4LCJhY2NvdW50IjoiYWRtaW4ifQ.p40Fn8EdYPFrpRrv00O5nPJtWBJkINMbC4BW5NA3suc
+2021-03-08 10:20:49.369 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-08 10:20:49.374 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:20:49.376 [http-nio-8000-exec-7] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: aaa] with root cause-Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: aaa] with root cause
+java.lang.RuntimeException: aaa
+	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
@@ -50,437 +514,10 @@ com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 pa
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-03-08 10:07:06.987 -- [http-nio-8000-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] threw exception
-com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.
-	at com.auth0.jwt.TokenUtils.splitToken(TokenUtils.java:21)
-	at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:27)
-	at com.auth0.jwt.JWT.decode(JWT.java:21)
-	at com.example.swap_data.common.JwtUtil.getUserNameByToken(JwtUtil.java:72)
-	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:35)
-	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2021-03-08 10:07:06.989 -- [http-nio-8000-exec-2] ERROR o.a.c.c.C.[Tomcat].[localhost].log - Exception Processing ErrorPage[errorCode=0, location=/error]
-org.springframework.web.util.NestedServletException: Request processing failed; nested exception is com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:352)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: com.auth0.jwt.exceptions.JWTDecodeException: The token was expected to have 3 parts, but got 1.
-	at com.auth0.jwt.TokenUtils.splitToken(TokenUtils.java:21)
-	at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:27)
-	at com.auth0.jwt.JWT.decode(JWT.java:21)
-	at com.example.swap_data.common.JwtUtil.getUserNameByToken(JwtUtil.java:72)
-	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:35)
-	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	... 39 common frames omitted
-2021-03-08 10:18:23.417 -- [http-nio-8000-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] threw exception
-java.lang.RuntimeException: aaa
-	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
-	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2021-03-08 10:18:23.424 -- [http-nio-8000-exec-4] ERROR o.a.c.c.C.[Tomcat].[localhost].log - Exception Processing ErrorPage[errorCode=0, location=/error]
-org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.RuntimeException: aaa
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.lang.RuntimeException: aaa
-	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
-	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	... 38 common frames omitted
-2021-03-08 10:19:17.343 -- [http-nio-8000-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] threw exception
-java.lang.RuntimeException: aaa
-	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
-	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2021-03-08 10:19:17.351 -- [http-nio-8000-exec-1] ERROR o.a.c.c.C.[Tomcat].[localhost].log - Exception Processing ErrorPage[errorCode=0, location=/error]
-org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.RuntimeException: aaa
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.lang.RuntimeException: aaa
-	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
-	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	... 38 common frames omitted
-2021-03-08 10:20:25.458 -- [http-nio-8000-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] threw exception
-java.lang.RuntimeException: aaa
-	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
-	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2021-03-08 10:20:25.462 -- [http-nio-8000-exec-4] ERROR o.a.c.c.C.[Tomcat].[localhost].log - Exception Processing ErrorPage[errorCode=0, location=/error]
-org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.RuntimeException: aaa
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:398)
-	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:257)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:179)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.lang.RuntimeException: aaa
-	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
-	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	... 38 common frames omitted
-2021-03-08 10:20:49.376 -- [http-nio-8000-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: aaa] with root cause
-java.lang.RuntimeException: aaa
-	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
-	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at com.example.swap_data.config.CORSFilter.doFilterInternal(CORSFilter.java:20)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-2021-03-08 10:20:49.383 -- [http-nio-8000-exec-7] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] threw exception
+2021-03-08 10:20:49.380 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxODM4LCJhY2NvdW50IjoiYWRtaW4ifQ.p40Fn8EdYPFrpRrv00O5nPJtWBJkINMbC4BW5NA3suc-获取到token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNjE1MTcxODM4LCJhY2NvdW50IjoiYWRtaW4ifQ.p40Fn8EdYPFrpRrv00O5nPJtWBJkINMbC4BW5NA3suc
+2021-03-08 10:20:49.381 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 昵称：admin-昵称：admin
+2021-03-08 10:20:49.382 [http-nio-8000-exec-7] INFO  com.example.swap_data.interceptor.JwtInterceptor - 未通过验证-未通过验证
+2021-03-08 10:20:49.383 [http-nio-8000-exec-7] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] threw exception-Servlet.service() for servlet [dispatcherServlet] threw exception
 java.lang.RuntimeException: aaa
 	at com.example.swap_data.interceptor.JwtInterceptor.preHandle(JwtInterceptor.java:45)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
@@ -526,7 +563,7 @@ java.lang.RuntimeException: aaa
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-03-08 10:20:49.384 -- [http-nio-8000-exec-7] ERROR o.a.c.c.C.[Tomcat].[localhost].log - Exception Processing ErrorPage[errorCode=0, location=/error]
+2021-03-08 10:20:49.384 [http-nio-8000-exec-7] ERROR o.a.c.core.ContainerBase.[Tomcat].[localhost] - Exception Processing ErrorPage[errorCode=0, location=/error]-Exception Processing ErrorPage[errorCode=0, location=/error]
 org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.RuntimeException: aaa
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
 	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
@@ -575,7 +612,38 @@ Caused by: java.lang.RuntimeException: aaa
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
 	... 39 common frames omitted
-2021-03-08 18:42:51.311 -- [main] ERROR o.s.boot.SpringApplication.reportFailure - Application run failed
+2021-03-08 10:23:35.017 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'-Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-08 10:23:35.020 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...-HikariPool-1 - Shutdown initiated...
+2021-03-08 10:23:35.029 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.-HikariPool-1 - Shutdown completed.
+2021-03-08 10:23:46.071 [main] INFO  com.example.swap_data.SwapDataApplication - Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 98145 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplication using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 98145 (/Users/chapin/java/swap_data/target/classes started by chapin in /Users/chapin/java/swap_data)
+2021-03-08 10:23:46.078 [main] DEBUG com.example.swap_data.SwapDataApplication - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-08 10:23:46.079 [main] INFO  com.example.swap_data.SwapDataApplication - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-08 10:23:47.946 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8000 (http)-Tomcat initialized with port(s): 8000 (http)
+2021-03-08 10:23:47.957 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]-Initializing ProtocolHandler ["http-nio-8000"]
+2021-03-08 10:23:47.958 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]-Starting service [Tomcat]
+2021-03-08 10:23:47.958 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43]-Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-08 10:23:48.063 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext-Initializing Spring embedded WebApplicationContext
+2021-03-08 10:23:48.063 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1783 ms-Root WebApplicationContext: initialization completed in 1783 ms
+2021-03-08 10:23:48.114 [main] DEBUG com.example.swap_data.config.CORSFilter - Filter 'CORSFilter' configured for use-Filter 'CORSFilter' configured for use
+2021-03-08 10:23:50.098 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]-Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-03-08 10:23:50.415 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'-Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-08 10:23:50.676 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]-Starting ProtocolHandler ["http-nio-8000"]
+2021-03-08 10:23:50.722 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8000 (http) with context path ''-Tomcat started on port(s): 8000 (http) with context path ''
+2021-03-08 10:23:50.725 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed-Context refreshed
+2021-03-08 10:23:50.751 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)-Found 1 custom documentation plugin(s)
+2021-03-08 10:23:50.799 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references-Scanning for api listing references
+2021-03-08 10:23:51.247 [main] INFO  com.example.swap_data.SwapDataApplication - Started SwapDataApplication in 7.442 seconds (JVM running for 10.517)-Started SwapDataApplication in 7.442 seconds (JVM running for 10.517)
+2021-03-08 18:06:42.786 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'-Shutting down ExecutorService 'applicationTaskExecutor'
+2021-03-08 18:42:45.714 [main] INFO  com.example.swap_data.SwapDataApplicationTests - Starting SwapDataApplicationTests using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 12115 (started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplicationTests using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 12115 (started by chapin in /Users/chapin/java/swap_data)
+2021-03-08 18:42:45.717 [main] DEBUG com.example.swap_data.SwapDataApplicationTests - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-08 18:42:45.720 [main] INFO  com.example.swap_data.SwapDataApplicationTests - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-08 18:42:51.243 [main] WARN  o.s.w.context.support.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap-Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap
+2021-03-08 18:42:51.262 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.-
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-03-08 18:42:51.311 [main] ERROR org.springframework.boot.SpringApplication - Application run failed-Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
@@ -748,7 +816,7 @@ Caused by: java.lang.IllegalArgumentException: Result Maps collection already co
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
 	... 141 common frames omitted
-2021-03-08 18:42:51.321 -- [main] ERROR o.s.test.context.TestContextManager.prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@4784efd9]
+2021-03-08 18:42:51.321 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@4784efd9]-Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@4784efd9]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -924,7 +992,16 @@ Caused by: java.lang.IllegalArgumentException: Result Maps collection already co
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
 	... 141 common frames omitted
-2021-03-08 18:44:34.277 -- [main] ERROR o.s.boot.SpringApplication.reportFailure - Application run failed
+2021-03-08 18:44:30.979 [main] INFO  com.example.swap_data.SwapDataApplicationTests - Starting SwapDataApplicationTests using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 12168 (started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplicationTests using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 12168 (started by chapin in /Users/chapin/java/swap_data)
+2021-03-08 18:44:30.981 [main] DEBUG com.example.swap_data.SwapDataApplicationTests - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-08 18:44:30.984 [main] INFO  com.example.swap_data.SwapDataApplicationTests - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-08 18:44:34.207 [main] WARN  o.s.w.context.support.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap-Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap
+2021-03-08 18:44:34.236 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.-
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-03-08 18:44:34.277 [main] ERROR org.springframework.boot.SpringApplication - Application run failed-Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
@@ -1097,7 +1174,7 @@ Caused by: java.lang.IllegalArgumentException: Result Maps collection already co
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
 	... 141 common frames omitted
-2021-03-08 18:44:34.285 -- [main] ERROR o.s.test.context.TestContextManager.prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@3c3820bb]
+2021-03-08 18:44:34.285 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@3c3820bb]-Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@3c3820bb]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -1273,7 +1350,16 @@ Caused by: java.lang.IllegalArgumentException: Result Maps collection already co
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
 	... 141 common frames omitted
-2021-03-08 18:45:04.509 -- [main] ERROR o.s.boot.SpringApplication.reportFailure - Application run failed
+2021-03-08 18:45:01.376 [main] INFO  com.example.swap_data.SwapDataApplicationTests - Starting SwapDataApplicationTests using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 12194 (started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplicationTests using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 12194 (started by chapin in /Users/chapin/java/swap_data)
+2021-03-08 18:45:01.380 [main] DEBUG com.example.swap_data.SwapDataApplicationTests - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-08 18:45:01.387 [main] INFO  com.example.swap_data.SwapDataApplicationTests - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-08 18:45:04.456 [main] WARN  o.s.w.context.support.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap-Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap
+2021-03-08 18:45:04.476 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.-
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-03-08 18:45:04.509 [main] ERROR org.springframework.boot.SpringApplication - Application run failed-Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
@@ -1446,7 +1532,7 @@ Caused by: java.lang.IllegalArgumentException: Result Maps collection already co
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
 	... 141 common frames omitted
-2021-03-08 18:45:04.515 -- [main] ERROR o.s.test.context.TestContextManager.prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@257e0827]
+2021-03-08 18:45:04.515 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@257e0827]-Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@257e0827]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -1622,7 +1708,16 @@ Caused by: java.lang.IllegalArgumentException: Result Maps collection already co
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
 	... 141 common frames omitted
-2021-03-08 18:47:45.098 -- [main] ERROR o.s.boot.SpringApplication.reportFailure - Application run failed
+2021-03-08 18:47:41.254 [main] INFO  com.example.swap_data.SwapDataApplicationTests - Starting SwapDataApplicationTests using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 12273 (started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplicationTests using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 12273 (started by chapin in /Users/chapin/java/swap_data)
+2021-03-08 18:47:41.256 [main] DEBUG com.example.swap_data.SwapDataApplicationTests - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-08 18:47:41.261 [main] INFO  com.example.swap_data.SwapDataApplicationTests - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-08 18:47:45.042 [main] WARN  o.s.w.context.support.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap-Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap
+2021-03-08 18:47:45.061 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.-
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-03-08 18:47:45.098 [main] ERROR org.springframework.boot.SpringApplication - Application run failed-Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
@@ -1795,7 +1890,7 @@ Caused by: java.lang.IllegalArgumentException: Result Maps collection already co
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
 	... 141 common frames omitted
-2021-03-08 18:47:45.105 -- [main] ERROR o.s.test.context.TestContextManager.prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@3c3820bb]
+2021-03-08 18:47:45.105 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@3c3820bb]-Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@3c3820bb]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -1971,7 +2066,16 @@ Caused by: java.lang.IllegalArgumentException: Result Maps collection already co
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
 	... 141 common frames omitted
-2021-03-08 18:49:08.979 -- [main] ERROR o.s.boot.SpringApplication.reportFailure - Application run failed
+2021-03-08 18:49:05.732 [main] INFO  com.example.swap_data.SwapDataApplicationTests - Starting SwapDataApplicationTests using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 12314 (started by chapin in /Users/chapin/java/swap_data)-Starting SwapDataApplicationTests using Java 1.8.0_271 on yinzhaopingdeMacBook-Pro.local with PID 12314 (started by chapin in /Users/chapin/java/swap_data)
+2021-03-08 18:49:05.733 [main] DEBUG com.example.swap_data.SwapDataApplicationTests - Running with Spring Boot v2.4.3, Spring v5.3.4-Running with Spring Boot v2.4.3, Spring v5.3.4
+2021-03-08 18:49:05.740 [main] INFO  com.example.swap_data.SwapDataApplicationTests - No active profile set, falling back to default profiles: default-No active profile set, falling back to default profiles: default
+2021-03-08 18:49:08.916 [main] WARN  o.s.w.context.support.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap-Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap
+2021-03-08 18:49:08.943 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.-
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-03-08 18:49:08.979 [main] ERROR org.springframework.boot.SpringApplication - Application run failed-Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserController': Unsatisfied dependency expressed through field 'sysUserService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sysUserService': Unsatisfied dependency expressed through field 'swapDataAdminMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'swapDataAdminMapper' defined in file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/dao/SwapDataAdminMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [/Users/chapin/java/swap_data/target/classes/com/example/swap_data/mapping/SwapOrderMapper.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. Cause: java.lang.IllegalArgumentException: Result Maps collection already contains value for com.example.swap_data.dao.SwapOrderMapper.BaseResultMap
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
@@ -2144,7 +2248,7 @@ Caused by: java.lang.IllegalArgumentException: Result Maps collection already co
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.resultMapElements(XMLMapperBuilder.java:244)
 	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:116)
 	... 141 common frames omitted
-2021-03-08 18:49:08.987 -- [main] ERROR o.s.test.context.TestContextManager.prepareTestInstance - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@376c7d7d]
+2021-03-08 18:49:08.987 [main] ERROR o.springframework.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@376c7d7d]-Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@312aa7c] to prepare test instance [com.example.swap_data.SwapDataApplicationTests@376c7d7d]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)

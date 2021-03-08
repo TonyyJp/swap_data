@@ -18,7 +18,7 @@ public class JwtUtil {
     // Token过期时间30分钟
     public static final long EXPIRE_TIME = 30 * 60 * 1000;
 
-    /* *
+    /**
      * @Author lsc
      * <p> 校验token是否正确 </p>
      * @Param token
@@ -35,6 +35,7 @@ public class JwtUtil {
                     .build();
             // 效验TOKEN
             DecodedJWT jwt = verifier.verify(token);
+
             return true;
         } catch (Exception exception) {
             return false;
@@ -49,11 +50,12 @@ public class JwtUtil {
      * @Param [username, secret]
      * @Return java.lang.String
      */
-    public static String sign(String account, String secret) {
+    public static String sign(Long id, String account, String secret) {
         Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
         Algorithm algorithm = Algorithm.HMAC256(secret);
         // 附带username信息
         return JWT.create()
+                .withClaim("id", id)
                 .withClaim("account", account)
                 .withExpiresAt(date)
                 .sign(algorithm);
@@ -62,14 +64,14 @@ public class JwtUtil {
 
     /* *
      * @Author lsc
-     * <p> 获得用户名 </p>
+     * <p> 获得昵称 </p>
      * @Param [request]
      * @Return java.lang.String
      */
     public static String getUserNameByToken(HttpServletRequest request)  {
         String token = request.getHeader("token");
         DecodedJWT jwt = JWT.decode(token);
-        return jwt.getClaim("username")
+        return jwt.getClaim("account")
                 .asString();
     }
 }

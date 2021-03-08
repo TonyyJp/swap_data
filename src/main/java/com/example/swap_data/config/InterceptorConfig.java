@@ -26,12 +26,20 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //定义排除swagger访问的路径配置
-        String[] swaggerExcludes=new String[]{"/doc.html","/SysUser/**","/webjars/**","/swagger-resources/**", "/v2/**","/swagger-ui.html/**","/statics/*"};
+        String[] swaggerExcludes=new String[]{
+                "/doc.html",
+                "/SysUser/**",
+                "/webjars/**",
+                "/swagger-resources/**",
+                "/v2/**",
+                "/swagger-ui.html/**",
+                "/statics/*",
+        };
 
         registry.addInterceptor(authenticationInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns(swaggerExcludes);
-        WebMvcConfigurer.super.addInterceptors(registry);
+//        WebMvcConfigurer.super.addInterceptors(registry);
     }
     /* *
      * @Author lsc

@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.swap_data.dao.SwapConsumeLogMapper">
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapConsumeLog">
+    <id column="consume_id" jdbcType="INTEGER" property="consumeId" />
+    <result column="account_id" jdbcType="INTEGER" property="accountId" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="scooter_code" jdbcType="VARCHAR" property="scooterCode" />
+    <result column="consume_before" jdbcType="INTEGER" property="consumeBefore" />
+    <result column="consume_value" jdbcType="INTEGER" property="consumeValue" />
+    <result column="consume_later" jdbcType="INTEGER" property="consumeLater" />
+    <result column="consume_time" jdbcType="TIMESTAMP" property="consumeTime" />
+    <result column="validity_before" jdbcType="DATE" property="validityBefore" />
+    <result column="validity_value" jdbcType="INTEGER" property="validityValue" />
+    <result column="validity_later" jdbcType="DATE" property="validityLater" />
+    <result column="mileage_value" jdbcType="INTEGER" property="mileageValue" />
+    <result column="consume_type" jdbcType="CHAR" property="consumeType" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="start_point" jdbcType="VARCHAR" property="startPoint" />
+    <result column="end_point" jdbcType="VARCHAR" property="endPoint" />
+    <result column="pay_channel" jdbcType="CHAR" property="payChannel" />
+    <result column="order_code" jdbcType="VARCHAR" property="orderCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    consume_id, account_id, order_id, scooter_code, consume_before, consume_value, consume_later, 
+    consume_time, validity_before, validity_value, validity_later, mileage_value, consume_type, 
+    remark, create_user, create_time, update_user, update_time, start_point, end_point, 
+    pay_channel, order_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_consume_log
+    where consume_id = #{consumeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_consume_log
+    where consume_id = #{consumeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapConsumeLog">
+    insert into swap_consume_log (consume_id, account_id, order_id, 
+      scooter_code, consume_before, consume_value, 
+      consume_later, consume_time, validity_before, 
+      validity_value, validity_later, mileage_value, 
+      consume_type, remark, create_user, 
+      create_time, update_user, update_time, 
+      start_point, end_point, pay_channel, 
+      order_code)
+    values (#{consumeId,jdbcType=INTEGER}, #{accountId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, 
+      #{scooterCode,jdbcType=VARCHAR}, #{consumeBefore,jdbcType=INTEGER}, #{consumeValue,jdbcType=INTEGER}, 
+      #{consumeLater,jdbcType=INTEGER}, #{consumeTime,jdbcType=TIMESTAMP}, #{validityBefore,jdbcType=DATE}, 
+      #{validityValue,jdbcType=INTEGER}, #{validityLater,jdbcType=DATE}, #{mileageValue,jdbcType=INTEGER}, 
+      #{consumeType,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{startPoint,jdbcType=VARCHAR}, #{endPoint,jdbcType=VARCHAR}, #{payChannel,jdbcType=CHAR}, 
+      #{orderCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapConsumeLog">
+    insert into swap_consume_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="consumeId != null">
+        consume_id,
+      </if>
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="scooterCode != null">
+        scooter_code,
+      </if>
+      <if test="consumeBefore != null">
+        consume_before,
+      </if>
+      <if test="consumeValue != null">
+        consume_value,
+      </if>
+      <if test="consumeLater != null">
+        consume_later,
+      </if>
+      <if test="consumeTime != null">
+        consume_time,
+      </if>
+      <if test="validityBefore != null">
+        validity_before,
+      </if>
+      <if test="validityValue != null">
+        validity_value,
+      </if>
+      <if test="validityLater != null">
+        validity_later,
+      </if>
+      <if test="mileageValue != null">
+        mileage_value,
+      </if>
+      <if test="consumeType != null">
+        consume_type,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="startPoint != null">
+        start_point,
+      </if>
+      <if test="endPoint != null">
+        end_point,
+      </if>
+      <if test="payChannel != null">
+        pay_channel,
+      </if>
+      <if test="orderCode != null">
+        order_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="consumeId != null">
+        #{consumeId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterCode != null">
+        #{scooterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="consumeBefore != null">
+        #{consumeBefore,jdbcType=INTEGER},
+      </if>
+      <if test="consumeValue != null">
+        #{consumeValue,jdbcType=INTEGER},
+      </if>
+      <if test="consumeLater != null">
+        #{consumeLater,jdbcType=INTEGER},
+      </if>
+      <if test="consumeTime != null">
+        #{consumeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validityBefore != null">
+        #{validityBefore,jdbcType=DATE},
+      </if>
+      <if test="validityValue != null">
+        #{validityValue,jdbcType=INTEGER},
+      </if>
+      <if test="validityLater != null">
+        #{validityLater,jdbcType=DATE},
+      </if>
+      <if test="mileageValue != null">
+        #{mileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="consumeType != null">
+        #{consumeType,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startPoint != null">
+        #{startPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="endPoint != null">
+        #{endPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="payChannel != null">
+        #{payChannel,jdbcType=CHAR},
+      </if>
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapConsumeLog">
+    update swap_consume_log
+    <set>
+      <if test="accountId != null">
+        account_id = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterCode != null">
+        scooter_code = #{scooterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="consumeBefore != null">
+        consume_before = #{consumeBefore,jdbcType=INTEGER},
+      </if>
+      <if test="consumeValue != null">
+        consume_value = #{consumeValue,jdbcType=INTEGER},
+      </if>
+      <if test="consumeLater != null">
+        consume_later = #{consumeLater,jdbcType=INTEGER},
+      </if>
+      <if test="consumeTime != null">
+        consume_time = #{consumeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validityBefore != null">
+        validity_before = #{validityBefore,jdbcType=DATE},
+      </if>
+      <if test="validityValue != null">
+        validity_value = #{validityValue,jdbcType=INTEGER},
+      </if>
+      <if test="validityLater != null">
+        validity_later = #{validityLater,jdbcType=DATE},
+      </if>
+      <if test="mileageValue != null">
+        mileage_value = #{mileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="consumeType != null">
+        consume_type = #{consumeType,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startPoint != null">
+        start_point = #{startPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="endPoint != null">
+        end_point = #{endPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="payChannel != null">
+        pay_channel = #{payChannel,jdbcType=CHAR},
+      </if>
+      <if test="orderCode != null">
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where consume_id = #{consumeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapConsumeLog">
+    update swap_consume_log
+    set account_id = #{accountId,jdbcType=INTEGER},
+      order_id = #{orderId,jdbcType=INTEGER},
+      scooter_code = #{scooterCode,jdbcType=VARCHAR},
+      consume_before = #{consumeBefore,jdbcType=INTEGER},
+      consume_value = #{consumeValue,jdbcType=INTEGER},
+      consume_later = #{consumeLater,jdbcType=INTEGER},
+      consume_time = #{consumeTime,jdbcType=TIMESTAMP},
+      validity_before = #{validityBefore,jdbcType=DATE},
+      validity_value = #{validityValue,jdbcType=INTEGER},
+      validity_later = #{validityLater,jdbcType=DATE},
+      mileage_value = #{mileageValue,jdbcType=INTEGER},
+      consume_type = #{consumeType,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      start_point = #{startPoint,jdbcType=VARCHAR},
+      end_point = #{endPoint,jdbcType=VARCHAR},
+      pay_channel = #{payChannel,jdbcType=CHAR},
+      order_code = #{orderCode,jdbcType=VARCHAR}
+    where consume_id = #{consumeId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapConsumeLog">
+    <id column="consume_id" jdbcType="INTEGER" property="consumeId" />
+    <result column="account_id" jdbcType="INTEGER" property="accountId" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="scooter_code" jdbcType="VARCHAR" property="scooterCode" />
+    <result column="consume_before" jdbcType="INTEGER" property="consumeBefore" />
+    <result column="consume_value" jdbcType="INTEGER" property="consumeValue" />
+    <result column="consume_later" jdbcType="INTEGER" property="consumeLater" />
+    <result column="consume_time" jdbcType="TIMESTAMP" property="consumeTime" />
+    <result column="validity_before" jdbcType="DATE" property="validityBefore" />
+    <result column="validity_value" jdbcType="INTEGER" property="validityValue" />
+    <result column="validity_later" jdbcType="DATE" property="validityLater" />
+    <result column="mileage_value" jdbcType="INTEGER" property="mileageValue" />
+    <result column="consume_type" jdbcType="CHAR" property="consumeType" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="start_point" jdbcType="VARCHAR" property="startPoint" />
+    <result column="end_point" jdbcType="VARCHAR" property="endPoint" />
+    <result column="pay_channel" jdbcType="CHAR" property="payChannel" />
+    <result column="order_code" jdbcType="VARCHAR" property="orderCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    consume_id, account_id, order_id, scooter_code, consume_before, consume_value, consume_later, 
+    consume_time, validity_before, validity_value, validity_later, mileage_value, consume_type, 
+    remark, create_user, create_time, update_user, update_time, start_point, end_point, 
+    pay_channel, order_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_consume_log
+    where consume_id = #{consumeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_consume_log
+    where consume_id = #{consumeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapConsumeLog">
+    insert into swap_consume_log (consume_id, account_id, order_id, 
+      scooter_code, consume_before, consume_value, 
+      consume_later, consume_time, validity_before, 
+      validity_value, validity_later, mileage_value, 
+      consume_type, remark, create_user, 
+      create_time, update_user, update_time, 
+      start_point, end_point, pay_channel, 
+      order_code)
+    values (#{consumeId,jdbcType=INTEGER}, #{accountId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, 
+      #{scooterCode,jdbcType=VARCHAR}, #{consumeBefore,jdbcType=INTEGER}, #{consumeValue,jdbcType=INTEGER}, 
+      #{consumeLater,jdbcType=INTEGER}, #{consumeTime,jdbcType=TIMESTAMP}, #{validityBefore,jdbcType=DATE}, 
+      #{validityValue,jdbcType=INTEGER}, #{validityLater,jdbcType=DATE}, #{mileageValue,jdbcType=INTEGER}, 
+      #{consumeType,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{startPoint,jdbcType=VARCHAR}, #{endPoint,jdbcType=VARCHAR}, #{payChannel,jdbcType=CHAR}, 
+      #{orderCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapConsumeLog">
+    insert into swap_consume_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="consumeId != null">
+        consume_id,
+      </if>
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="scooterCode != null">
+        scooter_code,
+      </if>
+      <if test="consumeBefore != null">
+        consume_before,
+      </if>
+      <if test="consumeValue != null">
+        consume_value,
+      </if>
+      <if test="consumeLater != null">
+        consume_later,
+      </if>
+      <if test="consumeTime != null">
+        consume_time,
+      </if>
+      <if test="validityBefore != null">
+        validity_before,
+      </if>
+      <if test="validityValue != null">
+        validity_value,
+      </if>
+      <if test="validityLater != null">
+        validity_later,
+      </if>
+      <if test="mileageValue != null">
+        mileage_value,
+      </if>
+      <if test="consumeType != null">
+        consume_type,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="startPoint != null">
+        start_point,
+      </if>
+      <if test="endPoint != null">
+        end_point,
+      </if>
+      <if test="payChannel != null">
+        pay_channel,
+      </if>
+      <if test="orderCode != null">
+        order_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="consumeId != null">
+        #{consumeId,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterCode != null">
+        #{scooterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="consumeBefore != null">
+        #{consumeBefore,jdbcType=INTEGER},
+      </if>
+      <if test="consumeValue != null">
+        #{consumeValue,jdbcType=INTEGER},
+      </if>
+      <if test="consumeLater != null">
+        #{consumeLater,jdbcType=INTEGER},
+      </if>
+      <if test="consumeTime != null">
+        #{consumeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validityBefore != null">
+        #{validityBefore,jdbcType=DATE},
+      </if>
+      <if test="validityValue != null">
+        #{validityValue,jdbcType=INTEGER},
+      </if>
+      <if test="validityLater != null">
+        #{validityLater,jdbcType=DATE},
+      </if>
+      <if test="mileageValue != null">
+        #{mileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="consumeType != null">
+        #{consumeType,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startPoint != null">
+        #{startPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="endPoint != null">
+        #{endPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="payChannel != null">
+        #{payChannel,jdbcType=CHAR},
+      </if>
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapConsumeLog">
+    update swap_consume_log
+    <set>
+      <if test="accountId != null">
+        account_id = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterCode != null">
+        scooter_code = #{scooterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="consumeBefore != null">
+        consume_before = #{consumeBefore,jdbcType=INTEGER},
+      </if>
+      <if test="consumeValue != null">
+        consume_value = #{consumeValue,jdbcType=INTEGER},
+      </if>
+      <if test="consumeLater != null">
+        consume_later = #{consumeLater,jdbcType=INTEGER},
+      </if>
+      <if test="consumeTime != null">
+        consume_time = #{consumeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validityBefore != null">
+        validity_before = #{validityBefore,jdbcType=DATE},
+      </if>
+      <if test="validityValue != null">
+        validity_value = #{validityValue,jdbcType=INTEGER},
+      </if>
+      <if test="validityLater != null">
+        validity_later = #{validityLater,jdbcType=DATE},
+      </if>
+      <if test="mileageValue != null">
+        mileage_value = #{mileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="consumeType != null">
+        consume_type = #{consumeType,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startPoint != null">
+        start_point = #{startPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="endPoint != null">
+        end_point = #{endPoint,jdbcType=VARCHAR},
+      </if>
+      <if test="payChannel != null">
+        pay_channel = #{payChannel,jdbcType=CHAR},
+      </if>
+      <if test="orderCode != null">
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where consume_id = #{consumeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapConsumeLog">
+    update swap_consume_log
+    set account_id = #{accountId,jdbcType=INTEGER},
+      order_id = #{orderId,jdbcType=INTEGER},
+      scooter_code = #{scooterCode,jdbcType=VARCHAR},
+      consume_before = #{consumeBefore,jdbcType=INTEGER},
+      consume_value = #{consumeValue,jdbcType=INTEGER},
+      consume_later = #{consumeLater,jdbcType=INTEGER},
+      consume_time = #{consumeTime,jdbcType=TIMESTAMP},
+      validity_before = #{validityBefore,jdbcType=DATE},
+      validity_value = #{validityValue,jdbcType=INTEGER},
+      validity_later = #{validityLater,jdbcType=DATE},
+      mileage_value = #{mileageValue,jdbcType=INTEGER},
+      consume_type = #{consumeType,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      start_point = #{startPoint,jdbcType=VARCHAR},
+      end_point = #{endPoint,jdbcType=VARCHAR},
+      pay_channel = #{payChannel,jdbcType=CHAR},
+      order_code = #{orderCode,jdbcType=VARCHAR}
+    where consume_id = #{consumeId,jdbcType=INTEGER}
+  </update>
+</mapper>

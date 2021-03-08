@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.swap_data.dao.SwapUserAccountMapper">
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapUserAccount">
+    <id column="account_id" jdbcType="INTEGER" property="accountId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="account_integral" jdbcType="INTEGER" property="accountIntegral" />
+    <result column="account_level" jdbcType="INTEGER" property="accountLevel" />
+    <result column="distance_balance" jdbcType="INTEGER" property="distanceBalance" />
+    <result column="distance_validity" jdbcType="DATE" property="distanceValidity" />
+    <result column="recharge_date" jdbcType="TIMESTAMP" property="rechargeDate" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    account_id, user_id, account_integral, account_level, distance_balance, distance_validity, 
+    recharge_date, create_user, create_time, update_user, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_user_account
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_user_account
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapUserAccount">
+    insert into swap_user_account (account_id, user_id, account_integral, 
+      account_level, distance_balance, distance_validity, 
+      recharge_date, create_user, create_time, 
+      update_user, update_time)
+    values (#{accountId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{accountIntegral,jdbcType=INTEGER}, 
+      #{accountLevel,jdbcType=INTEGER}, #{distanceBalance,jdbcType=INTEGER}, #{distanceValidity,jdbcType=DATE}, 
+      #{rechargeDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapUserAccount">
+    insert into swap_user_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="accountIntegral != null">
+        account_integral,
+      </if>
+      <if test="accountLevel != null">
+        account_level,
+      </if>
+      <if test="distanceBalance != null">
+        distance_balance,
+      </if>
+      <if test="distanceValidity != null">
+        distance_validity,
+      </if>
+      <if test="rechargeDate != null">
+        recharge_date,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accountId != null">
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="accountIntegral != null">
+        #{accountIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="accountLevel != null">
+        #{accountLevel,jdbcType=INTEGER},
+      </if>
+      <if test="distanceBalance != null">
+        #{distanceBalance,jdbcType=INTEGER},
+      </if>
+      <if test="distanceValidity != null">
+        #{distanceValidity,jdbcType=DATE},
+      </if>
+      <if test="rechargeDate != null">
+        #{rechargeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapUserAccount">
+    update swap_user_account
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="accountIntegral != null">
+        account_integral = #{accountIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="accountLevel != null">
+        account_level = #{accountLevel,jdbcType=INTEGER},
+      </if>
+      <if test="distanceBalance != null">
+        distance_balance = #{distanceBalance,jdbcType=INTEGER},
+      </if>
+      <if test="distanceValidity != null">
+        distance_validity = #{distanceValidity,jdbcType=DATE},
+      </if>
+      <if test="rechargeDate != null">
+        recharge_date = #{rechargeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapUserAccount">
+    update swap_user_account
+    set user_id = #{userId,jdbcType=INTEGER},
+      account_integral = #{accountIntegral,jdbcType=INTEGER},
+      account_level = #{accountLevel,jdbcType=INTEGER},
+      distance_balance = #{distanceBalance,jdbcType=INTEGER},
+      distance_validity = #{distanceValidity,jdbcType=DATE},
+      recharge_date = #{rechargeDate,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapUserAccount">
+    <id column="account_id" jdbcType="INTEGER" property="accountId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="account_integral" jdbcType="INTEGER" property="accountIntegral" />
+    <result column="account_level" jdbcType="INTEGER" property="accountLevel" />
+    <result column="distance_balance" jdbcType="INTEGER" property="distanceBalance" />
+    <result column="distance_validity" jdbcType="DATE" property="distanceValidity" />
+    <result column="recharge_date" jdbcType="TIMESTAMP" property="rechargeDate" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    account_id, user_id, account_integral, account_level, distance_balance, distance_validity, 
+    recharge_date, create_user, create_time, update_user, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_user_account
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_user_account
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapUserAccount">
+    insert into swap_user_account (account_id, user_id, account_integral, 
+      account_level, distance_balance, distance_validity, 
+      recharge_date, create_user, create_time, 
+      update_user, update_time)
+    values (#{accountId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{accountIntegral,jdbcType=INTEGER}, 
+      #{accountLevel,jdbcType=INTEGER}, #{distanceBalance,jdbcType=INTEGER}, #{distanceValidity,jdbcType=DATE}, 
+      #{rechargeDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapUserAccount">
+    insert into swap_user_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="accountIntegral != null">
+        account_integral,
+      </if>
+      <if test="accountLevel != null">
+        account_level,
+      </if>
+      <if test="distanceBalance != null">
+        distance_balance,
+      </if>
+      <if test="distanceValidity != null">
+        distance_validity,
+      </if>
+      <if test="rechargeDate != null">
+        recharge_date,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accountId != null">
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="accountIntegral != null">
+        #{accountIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="accountLevel != null">
+        #{accountLevel,jdbcType=INTEGER},
+      </if>
+      <if test="distanceBalance != null">
+        #{distanceBalance,jdbcType=INTEGER},
+      </if>
+      <if test="distanceValidity != null">
+        #{distanceValidity,jdbcType=DATE},
+      </if>
+      <if test="rechargeDate != null">
+        #{rechargeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapUserAccount">
+    update swap_user_account
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="accountIntegral != null">
+        account_integral = #{accountIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="accountLevel != null">
+        account_level = #{accountLevel,jdbcType=INTEGER},
+      </if>
+      <if test="distanceBalance != null">
+        distance_balance = #{distanceBalance,jdbcType=INTEGER},
+      </if>
+      <if test="distanceValidity != null">
+        distance_validity = #{distanceValidity,jdbcType=DATE},
+      </if>
+      <if test="rechargeDate != null">
+        recharge_date = #{rechargeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapUserAccount">
+    update swap_user_account
+    set user_id = #{userId,jdbcType=INTEGER},
+      account_integral = #{accountIntegral,jdbcType=INTEGER},
+      account_level = #{accountLevel,jdbcType=INTEGER},
+      distance_balance = #{distanceBalance,jdbcType=INTEGER},
+      distance_validity = #{distanceValidity,jdbcType=DATE},
+      recharge_date = #{rechargeDate,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where account_id = #{accountId,jdbcType=INTEGER}
+  </update>
+</mapper>

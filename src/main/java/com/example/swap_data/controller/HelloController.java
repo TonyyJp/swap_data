@@ -5,11 +5,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Api(value = "测试")
 @RestController
+@RequestMapping("/api")
 public class HelloController {
 
     @ApiOperation(value = "desc of method", notes = "")
@@ -20,7 +22,7 @@ public class HelloController {
 //        return  BaseMessage.newInstance().error();
     }
 
-    @GetMapping(value = "/api/test")
+    @GetMapping(value = "/test")
     public String get(){
         return "zszxz";
     }

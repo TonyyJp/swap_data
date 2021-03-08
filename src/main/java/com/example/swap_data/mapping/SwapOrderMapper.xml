@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.swap_data.dao.SwapOrderMapper">
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapOrder">
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <id column="pay_channel" jdbcType="CHAR" property="payChannel" />
+    <result column="order_code" jdbcType="VARCHAR" property="orderCode" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="scooter_id" jdbcType="INTEGER" property="scooterId" />
+    <result column="plan_id" jdbcType="INTEGER" property="planId" />
+    <result column="distance" jdbcType="INTEGER" property="distance" />
+    <result column="plan_price" jdbcType="BIGINT" property="planPrice" />
+    <result column="discount" jdbcType="INTEGER" property="discount" />
+    <result column="ailable_time" jdbcType="INTEGER" property="ailableTime" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="sum_time" jdbcType="INTEGER" property="sumTime" />
+    <result column="plan_total" jdbcType="BIGINT" property="planTotal" />
+    <result column="discounts" jdbcType="VARCHAR" property="discounts" />
+    <result column="total_prices" jdbcType="BIGINT" property="totalPrices" />
+    <result column="plan_type" jdbcType="VARCHAR" property="planType" />
+    <result column="distance_sum" jdbcType="INTEGER" property="distanceSum" />
+    <result column="pay_status" jdbcType="VARCHAR" property="payStatus" />
+    <result column="pay_code" jdbcType="VARCHAR" property="payCode" />
+    <result column="callback_result" jdbcType="VARCHAR" property="callbackResult" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_id, pay_channel, order_code, user_id, scooter_id, plan_id, distance, plan_price, 
+    discount, ailable_time, count, sum_time, plan_total, discounts, total_prices, plan_type, 
+    distance_sum, pay_status, pay_code, callback_result, pay_time, create_user, create_time, 
+    update_user, update_time, remark, del_flag
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="com.example.swap_data.model.SwapOrder" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_order
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and pay_channel = #{payChannel,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.swap_data.model.SwapOrder">
+    delete from swap_order
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and pay_channel = #{payChannel,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapOrder">
+    insert into swap_order (order_id, pay_channel, order_code, 
+      user_id, scooter_id, plan_id, 
+      distance, plan_price, discount, 
+      ailable_time, count, sum_time, 
+      plan_total, discounts, total_prices, 
+      plan_type, distance_sum, pay_status, 
+      pay_code, callback_result, pay_time, 
+      create_user, create_time, update_user, 
+      update_time, remark, del_flag
+      )
+    values (#{orderId,jdbcType=INTEGER}, #{payChannel,jdbcType=CHAR}, #{orderCode,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=INTEGER}, #{scooterId,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, 
+      #{distance,jdbcType=INTEGER}, #{planPrice,jdbcType=BIGINT}, #{discount,jdbcType=INTEGER}, 
+      #{ailableTime,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, #{sumTime,jdbcType=INTEGER}, 
+      #{planTotal,jdbcType=BIGINT}, #{discounts,jdbcType=VARCHAR}, #{totalPrices,jdbcType=BIGINT}, 
+      #{planType,jdbcType=VARCHAR}, #{distanceSum,jdbcType=INTEGER}, #{payStatus,jdbcType=VARCHAR}, 
+      #{payCode,jdbcType=VARCHAR}, #{callbackResult,jdbcType=VARCHAR}, #{payTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapOrder">
+    insert into swap_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="payChannel != null">
+        pay_channel,
+      </if>
+      <if test="orderCode != null">
+        order_code,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="scooterId != null">
+        scooter_id,
+      </if>
+      <if test="planId != null">
+        plan_id,
+      </if>
+      <if test="distance != null">
+        distance,
+      </if>
+      <if test="planPrice != null">
+        plan_price,
+      </if>
+      <if test="discount != null">
+        discount,
+      </if>
+      <if test="ailableTime != null">
+        ailable_time,
+      </if>
+      <if test="count != null">
+        count,
+      </if>
+      <if test="sumTime != null">
+        sum_time,
+      </if>
+      <if test="planTotal != null">
+        plan_total,
+      </if>
+      <if test="discounts != null">
+        discounts,
+      </if>
+      <if test="totalPrices != null">
+        total_prices,
+      </if>
+      <if test="planType != null">
+        plan_type,
+      </if>
+      <if test="distanceSum != null">
+        distance_sum,
+      </if>
+      <if test="payStatus != null">
+        pay_status,
+      </if>
+      <if test="payCode != null">
+        pay_code,
+      </if>
+      <if test="callbackResult != null">
+        callback_result,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="payChannel != null">
+        #{payChannel,jdbcType=CHAR},
+      </if>
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="planId != null">
+        #{planId,jdbcType=INTEGER},
+      </if>
+      <if test="distance != null">
+        #{distance,jdbcType=INTEGER},
+      </if>
+      <if test="planPrice != null">
+        #{planPrice,jdbcType=BIGINT},
+      </if>
+      <if test="discount != null">
+        #{discount,jdbcType=INTEGER},
+      </if>
+      <if test="ailableTime != null">
+        #{ailableTime,jdbcType=INTEGER},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="sumTime != null">
+        #{sumTime,jdbcType=INTEGER},
+      </if>
+      <if test="planTotal != null">
+        #{planTotal,jdbcType=BIGINT},
+      </if>
+      <if test="discounts != null">
+        #{discounts,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrices != null">
+        #{totalPrices,jdbcType=BIGINT},
+      </if>
+      <if test="planType != null">
+        #{planType,jdbcType=VARCHAR},
+      </if>
+      <if test="distanceSum != null">
+        #{distanceSum,jdbcType=INTEGER},
+      </if>
+      <if test="payStatus != null">
+        #{payStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="payCode != null">
+        #{payCode,jdbcType=VARCHAR},
+      </if>
+      <if test="callbackResult != null">
+        #{callbackResult,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapOrder">
+    update swap_order
+    <set>
+      <if test="orderCode != null">
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        scooter_id = #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="planId != null">
+        plan_id = #{planId,jdbcType=INTEGER},
+      </if>
+      <if test="distance != null">
+        distance = #{distance,jdbcType=INTEGER},
+      </if>
+      <if test="planPrice != null">
+        plan_price = #{planPrice,jdbcType=BIGINT},
+      </if>
+      <if test="discount != null">
+        discount = #{discount,jdbcType=INTEGER},
+      </if>
+      <if test="ailableTime != null">
+        ailable_time = #{ailableTime,jdbcType=INTEGER},
+      </if>
+      <if test="count != null">
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="sumTime != null">
+        sum_time = #{sumTime,jdbcType=INTEGER},
+      </if>
+      <if test="planTotal != null">
+        plan_total = #{planTotal,jdbcType=BIGINT},
+      </if>
+      <if test="discounts != null">
+        discounts = #{discounts,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrices != null">
+        total_prices = #{totalPrices,jdbcType=BIGINT},
+      </if>
+      <if test="planType != null">
+        plan_type = #{planType,jdbcType=VARCHAR},
+      </if>
+      <if test="distanceSum != null">
+        distance_sum = #{distanceSum,jdbcType=INTEGER},
+      </if>
+      <if test="payStatus != null">
+        pay_status = #{payStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="payCode != null">
+        pay_code = #{payCode,jdbcType=VARCHAR},
+      </if>
+      <if test="callbackResult != null">
+        callback_result = #{callbackResult,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and pay_channel = #{payChannel,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapOrder">
+    update swap_order
+    set order_code = #{orderCode,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      scooter_id = #{scooterId,jdbcType=INTEGER},
+      plan_id = #{planId,jdbcType=INTEGER},
+      distance = #{distance,jdbcType=INTEGER},
+      plan_price = #{planPrice,jdbcType=BIGINT},
+      discount = #{discount,jdbcType=INTEGER},
+      ailable_time = #{ailableTime,jdbcType=INTEGER},
+      count = #{count,jdbcType=INTEGER},
+      sum_time = #{sumTime,jdbcType=INTEGER},
+      plan_total = #{planTotal,jdbcType=BIGINT},
+      discounts = #{discounts,jdbcType=VARCHAR},
+      total_prices = #{totalPrices,jdbcType=BIGINT},
+      plan_type = #{planType,jdbcType=VARCHAR},
+      distance_sum = #{distanceSum,jdbcType=INTEGER},
+      pay_status = #{payStatus,jdbcType=VARCHAR},
+      pay_code = #{payCode,jdbcType=VARCHAR},
+      callback_result = #{callbackResult,jdbcType=VARCHAR},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and pay_channel = #{payChannel,jdbcType=CHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapOrder">
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <id column="pay_channel" jdbcType="CHAR" property="payChannel" />
+    <result column="order_code" jdbcType="VARCHAR" property="orderCode" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="scooter_id" jdbcType="INTEGER" property="scooterId" />
+    <result column="plan_id" jdbcType="INTEGER" property="planId" />
+    <result column="distance" jdbcType="INTEGER" property="distance" />
+    <result column="plan_price" jdbcType="BIGINT" property="planPrice" />
+    <result column="discount" jdbcType="INTEGER" property="discount" />
+    <result column="ailable_time" jdbcType="INTEGER" property="ailableTime" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="sum_time" jdbcType="INTEGER" property="sumTime" />
+    <result column="plan_total" jdbcType="BIGINT" property="planTotal" />
+    <result column="discounts" jdbcType="VARCHAR" property="discounts" />
+    <result column="total_prices" jdbcType="BIGINT" property="totalPrices" />
+    <result column="plan_type" jdbcType="VARCHAR" property="planType" />
+    <result column="distance_sum" jdbcType="INTEGER" property="distanceSum" />
+    <result column="pay_status" jdbcType="VARCHAR" property="payStatus" />
+    <result column="pay_code" jdbcType="VARCHAR" property="payCode" />
+    <result column="callback_result" jdbcType="VARCHAR" property="callbackResult" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_id, pay_channel, order_code, user_id, scooter_id, plan_id, distance, plan_price, 
+    discount, ailable_time, count, sum_time, plan_total, discounts, total_prices, plan_type, 
+    distance_sum, pay_status, pay_code, callback_result, pay_time, create_user, create_time, 
+    update_user, update_time, remark, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.example.swap_data.model.SwapOrder" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_order
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and pay_channel = #{payChannel,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.swap_data.model.SwapOrder">
+    delete from swap_order
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and pay_channel = #{payChannel,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapOrder">
+    insert into swap_order (order_id, pay_channel, order_code, 
+      user_id, scooter_id, plan_id, 
+      distance, plan_price, discount, 
+      ailable_time, count, sum_time, 
+      plan_total, discounts, total_prices, 
+      plan_type, distance_sum, pay_status, 
+      pay_code, callback_result, pay_time, 
+      create_user, create_time, update_user, 
+      update_time, remark, del_flag
+      )
+    values (#{orderId,jdbcType=INTEGER}, #{payChannel,jdbcType=CHAR}, #{orderCode,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=INTEGER}, #{scooterId,jdbcType=INTEGER}, #{planId,jdbcType=INTEGER}, 
+      #{distance,jdbcType=INTEGER}, #{planPrice,jdbcType=BIGINT}, #{discount,jdbcType=INTEGER}, 
+      #{ailableTime,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, #{sumTime,jdbcType=INTEGER}, 
+      #{planTotal,jdbcType=BIGINT}, #{discounts,jdbcType=VARCHAR}, #{totalPrices,jdbcType=BIGINT}, 
+      #{planType,jdbcType=VARCHAR}, #{distanceSum,jdbcType=INTEGER}, #{payStatus,jdbcType=VARCHAR}, 
+      #{payCode,jdbcType=VARCHAR}, #{callbackResult,jdbcType=VARCHAR}, #{payTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapOrder">
+    insert into swap_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="payChannel != null">
+        pay_channel,
+      </if>
+      <if test="orderCode != null">
+        order_code,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="scooterId != null">
+        scooter_id,
+      </if>
+      <if test="planId != null">
+        plan_id,
+      </if>
+      <if test="distance != null">
+        distance,
+      </if>
+      <if test="planPrice != null">
+        plan_price,
+      </if>
+      <if test="discount != null">
+        discount,
+      </if>
+      <if test="ailableTime != null">
+        ailable_time,
+      </if>
+      <if test="count != null">
+        count,
+      </if>
+      <if test="sumTime != null">
+        sum_time,
+      </if>
+      <if test="planTotal != null">
+        plan_total,
+      </if>
+      <if test="discounts != null">
+        discounts,
+      </if>
+      <if test="totalPrices != null">
+        total_prices,
+      </if>
+      <if test="planType != null">
+        plan_type,
+      </if>
+      <if test="distanceSum != null">
+        distance_sum,
+      </if>
+      <if test="payStatus != null">
+        pay_status,
+      </if>
+      <if test="payCode != null">
+        pay_code,
+      </if>
+      <if test="callbackResult != null">
+        callback_result,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="payChannel != null">
+        #{payChannel,jdbcType=CHAR},
+      </if>
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="planId != null">
+        #{planId,jdbcType=INTEGER},
+      </if>
+      <if test="distance != null">
+        #{distance,jdbcType=INTEGER},
+      </if>
+      <if test="planPrice != null">
+        #{planPrice,jdbcType=BIGINT},
+      </if>
+      <if test="discount != null">
+        #{discount,jdbcType=INTEGER},
+      </if>
+      <if test="ailableTime != null">
+        #{ailableTime,jdbcType=INTEGER},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="sumTime != null">
+        #{sumTime,jdbcType=INTEGER},
+      </if>
+      <if test="planTotal != null">
+        #{planTotal,jdbcType=BIGINT},
+      </if>
+      <if test="discounts != null">
+        #{discounts,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrices != null">
+        #{totalPrices,jdbcType=BIGINT},
+      </if>
+      <if test="planType != null">
+        #{planType,jdbcType=VARCHAR},
+      </if>
+      <if test="distanceSum != null">
+        #{distanceSum,jdbcType=INTEGER},
+      </if>
+      <if test="payStatus != null">
+        #{payStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="payCode != null">
+        #{payCode,jdbcType=VARCHAR},
+      </if>
+      <if test="callbackResult != null">
+        #{callbackResult,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapOrder">
+    update swap_order
+    <set>
+      <if test="orderCode != null">
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        scooter_id = #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="planId != null">
+        plan_id = #{planId,jdbcType=INTEGER},
+      </if>
+      <if test="distance != null">
+        distance = #{distance,jdbcType=INTEGER},
+      </if>
+      <if test="planPrice != null">
+        plan_price = #{planPrice,jdbcType=BIGINT},
+      </if>
+      <if test="discount != null">
+        discount = #{discount,jdbcType=INTEGER},
+      </if>
+      <if test="ailableTime != null">
+        ailable_time = #{ailableTime,jdbcType=INTEGER},
+      </if>
+      <if test="count != null">
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="sumTime != null">
+        sum_time = #{sumTime,jdbcType=INTEGER},
+      </if>
+      <if test="planTotal != null">
+        plan_total = #{planTotal,jdbcType=BIGINT},
+      </if>
+      <if test="discounts != null">
+        discounts = #{discounts,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrices != null">
+        total_prices = #{totalPrices,jdbcType=BIGINT},
+      </if>
+      <if test="planType != null">
+        plan_type = #{planType,jdbcType=VARCHAR},
+      </if>
+      <if test="distanceSum != null">
+        distance_sum = #{distanceSum,jdbcType=INTEGER},
+      </if>
+      <if test="payStatus != null">
+        pay_status = #{payStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="payCode != null">
+        pay_code = #{payCode,jdbcType=VARCHAR},
+      </if>
+      <if test="callbackResult != null">
+        callback_result = #{callbackResult,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and pay_channel = #{payChannel,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapOrder">
+    update swap_order
+    set order_code = #{orderCode,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      scooter_id = #{scooterId,jdbcType=INTEGER},
+      plan_id = #{planId,jdbcType=INTEGER},
+      distance = #{distance,jdbcType=INTEGER},
+      plan_price = #{planPrice,jdbcType=BIGINT},
+      discount = #{discount,jdbcType=INTEGER},
+      ailable_time = #{ailableTime,jdbcType=INTEGER},
+      count = #{count,jdbcType=INTEGER},
+      sum_time = #{sumTime,jdbcType=INTEGER},
+      plan_total = #{planTotal,jdbcType=BIGINT},
+      discounts = #{discounts,jdbcType=VARCHAR},
+      total_prices = #{totalPrices,jdbcType=BIGINT},
+      plan_type = #{planType,jdbcType=VARCHAR},
+      distance_sum = #{distanceSum,jdbcType=INTEGER},
+      pay_status = #{payStatus,jdbcType=VARCHAR},
+      pay_code = #{payCode,jdbcType=VARCHAR},
+      callback_result = #{callbackResult,jdbcType=VARCHAR},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and pay_channel = #{payChannel,jdbcType=CHAR}
+  </update>
+  <select id="selectSum" resultType="int">
+    select sum(order_id) as total
+    from swap_order
+    where pay_status = 0
+      and del_flag = 0
+  </select>
+</mapper>

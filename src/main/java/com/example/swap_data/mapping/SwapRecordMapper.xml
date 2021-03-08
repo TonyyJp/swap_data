@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.swap_data.dao.SwapRecordMapper">
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapRecord">
+    <id column="record_id" jdbcType="INTEGER" property="recordId" />
+    <result column="record_number" jdbcType="VARCHAR" property="recordNumber" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="store_id" jdbcType="INTEGER" property="storeId" />
+    <result column="scooter_id" jdbcType="INTEGER" property="scooterId" />
+    <result column="battery_id" jdbcType="INTEGER" property="batteryId" />
+    <result column="station_id" jdbcType="INTEGER" property="stationId" />
+    <result column="last_electric_quantity" jdbcType="INTEGER" property="lastElectricQuantity" />
+    <result column="this_electric_quantity" jdbcType="INTEGER" property="thisElectricQuantity" />
+    <result column="last_mileage_value" jdbcType="INTEGER" property="lastMileageValue" />
+    <result column="this_mileage_value" jdbcType="INTEGER" property="thisMileageValue" />
+    <result column="warehouse_code" jdbcType="VARCHAR" property="warehouseCode" />
+    <result column="order_time_s" jdbcType="TIMESTAMP" property="orderTimeS" />
+    <result column="order_time_e" jdbcType="TIMESTAMP" property="orderTimeE" />
+    <result column="order_status" jdbcType="CHAR" property="orderStatus" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    record_id, record_number, user_id, store_id, scooter_id, battery_id, station_id, 
+    last_electric_quantity, this_electric_quantity, last_mileage_value, this_mileage_value, 
+    warehouse_code, order_time_s, order_time_e, order_status, create_user, create_time, 
+    update_user, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapRecord">
+    insert into swap_record (record_id, record_number, user_id, 
+      store_id, scooter_id, battery_id, 
+      station_id, last_electric_quantity, this_electric_quantity, 
+      last_mileage_value, this_mileage_value, warehouse_code, 
+      order_time_s, order_time_e, order_status, 
+      create_user, create_time, update_user, 
+      update_time)
+    values (#{recordId,jdbcType=INTEGER}, #{recordNumber,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{storeId,jdbcType=INTEGER}, #{scooterId,jdbcType=INTEGER}, #{batteryId,jdbcType=INTEGER}, 
+      #{stationId,jdbcType=INTEGER}, #{lastElectricQuantity,jdbcType=INTEGER}, #{thisElectricQuantity,jdbcType=INTEGER}, 
+      #{lastMileageValue,jdbcType=INTEGER}, #{thisMileageValue,jdbcType=INTEGER}, #{warehouseCode,jdbcType=VARCHAR}, 
+      #{orderTimeS,jdbcType=TIMESTAMP}, #{orderTimeE,jdbcType=TIMESTAMP}, #{orderStatus,jdbcType=CHAR}, 
+      #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapRecord">
+    insert into swap_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="recordNumber != null">
+        record_number,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="scooterId != null">
+        scooter_id,
+      </if>
+      <if test="batteryId != null">
+        battery_id,
+      </if>
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="lastElectricQuantity != null">
+        last_electric_quantity,
+      </if>
+      <if test="thisElectricQuantity != null">
+        this_electric_quantity,
+      </if>
+      <if test="lastMileageValue != null">
+        last_mileage_value,
+      </if>
+      <if test="thisMileageValue != null">
+        this_mileage_value,
+      </if>
+      <if test="warehouseCode != null">
+        warehouse_code,
+      </if>
+      <if test="orderTimeS != null">
+        order_time_s,
+      </if>
+      <if test="orderTimeE != null">
+        order_time_e,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="recordNumber != null">
+        #{recordNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="batteryId != null">
+        #{batteryId,jdbcType=INTEGER},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=INTEGER},
+      </if>
+      <if test="lastElectricQuantity != null">
+        #{lastElectricQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="thisElectricQuantity != null">
+        #{thisElectricQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="lastMileageValue != null">
+        #{lastMileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="thisMileageValue != null">
+        #{thisMileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseCode != null">
+        #{warehouseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTimeS != null">
+        #{orderTimeS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderTimeE != null">
+        #{orderTimeE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapRecord">
+    update swap_record
+    <set>
+      <if test="recordNumber != null">
+        record_number = #{recordNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        scooter_id = #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="batteryId != null">
+        battery_id = #{batteryId,jdbcType=INTEGER},
+      </if>
+      <if test="stationId != null">
+        station_id = #{stationId,jdbcType=INTEGER},
+      </if>
+      <if test="lastElectricQuantity != null">
+        last_electric_quantity = #{lastElectricQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="thisElectricQuantity != null">
+        this_electric_quantity = #{thisElectricQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="lastMileageValue != null">
+        last_mileage_value = #{lastMileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="thisMileageValue != null">
+        this_mileage_value = #{thisMileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseCode != null">
+        warehouse_code = #{warehouseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTimeS != null">
+        order_time_s = #{orderTimeS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderTimeE != null">
+        order_time_e = #{orderTimeE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapRecord">
+    update swap_record
+    set record_number = #{recordNumber,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      store_id = #{storeId,jdbcType=INTEGER},
+      scooter_id = #{scooterId,jdbcType=INTEGER},
+      battery_id = #{batteryId,jdbcType=INTEGER},
+      station_id = #{stationId,jdbcType=INTEGER},
+      last_electric_quantity = #{lastElectricQuantity,jdbcType=INTEGER},
+      this_electric_quantity = #{thisElectricQuantity,jdbcType=INTEGER},
+      last_mileage_value = #{lastMileageValue,jdbcType=INTEGER},
+      this_mileage_value = #{thisMileageValue,jdbcType=INTEGER},
+      warehouse_code = #{warehouseCode,jdbcType=VARCHAR},
+      order_time_s = #{orderTimeS,jdbcType=TIMESTAMP},
+      order_time_e = #{orderTimeE,jdbcType=TIMESTAMP},
+      order_status = #{orderStatus,jdbcType=CHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapRecord">
+    <id column="record_id" jdbcType="INTEGER" property="recordId" />
+    <result column="record_number" jdbcType="VARCHAR" property="recordNumber" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="store_id" jdbcType="INTEGER" property="storeId" />
+    <result column="scooter_id" jdbcType="INTEGER" property="scooterId" />
+    <result column="battery_id" jdbcType="INTEGER" property="batteryId" />
+    <result column="station_id" jdbcType="INTEGER" property="stationId" />
+    <result column="last_electric_quantity" jdbcType="INTEGER" property="lastElectricQuantity" />
+    <result column="this_electric_quantity" jdbcType="INTEGER" property="thisElectricQuantity" />
+    <result column="last_mileage_value" jdbcType="INTEGER" property="lastMileageValue" />
+    <result column="this_mileage_value" jdbcType="INTEGER" property="thisMileageValue" />
+    <result column="warehouse_code" jdbcType="VARCHAR" property="warehouseCode" />
+    <result column="order_time_s" jdbcType="TIMESTAMP" property="orderTimeS" />
+    <result column="order_time_e" jdbcType="TIMESTAMP" property="orderTimeE" />
+    <result column="order_status" jdbcType="CHAR" property="orderStatus" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    record_id, record_number, user_id, store_id, scooter_id, battery_id, station_id, 
+    last_electric_quantity, this_electric_quantity, last_mileage_value, this_mileage_value, 
+    warehouse_code, order_time_s, order_time_e, order_status, create_user, create_time, 
+    update_user, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_record
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapRecord">
+    insert into swap_record (record_id, record_number, user_id, 
+      store_id, scooter_id, battery_id, 
+      station_id, last_electric_quantity, this_electric_quantity, 
+      last_mileage_value, this_mileage_value, warehouse_code, 
+      order_time_s, order_time_e, order_status, 
+      create_user, create_time, update_user, 
+      update_time)
+    values (#{recordId,jdbcType=INTEGER}, #{recordNumber,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{storeId,jdbcType=INTEGER}, #{scooterId,jdbcType=INTEGER}, #{batteryId,jdbcType=INTEGER}, 
+      #{stationId,jdbcType=INTEGER}, #{lastElectricQuantity,jdbcType=INTEGER}, #{thisElectricQuantity,jdbcType=INTEGER}, 
+      #{lastMileageValue,jdbcType=INTEGER}, #{thisMileageValue,jdbcType=INTEGER}, #{warehouseCode,jdbcType=VARCHAR}, 
+      #{orderTimeS,jdbcType=TIMESTAMP}, #{orderTimeE,jdbcType=TIMESTAMP}, #{orderStatus,jdbcType=CHAR}, 
+      #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapRecord">
+    insert into swap_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="recordNumber != null">
+        record_number,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="scooterId != null">
+        scooter_id,
+      </if>
+      <if test="batteryId != null">
+        battery_id,
+      </if>
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="lastElectricQuantity != null">
+        last_electric_quantity,
+      </if>
+      <if test="thisElectricQuantity != null">
+        this_electric_quantity,
+      </if>
+      <if test="lastMileageValue != null">
+        last_mileage_value,
+      </if>
+      <if test="thisMileageValue != null">
+        this_mileage_value,
+      </if>
+      <if test="warehouseCode != null">
+        warehouse_code,
+      </if>
+      <if test="orderTimeS != null">
+        order_time_s,
+      </if>
+      <if test="orderTimeE != null">
+        order_time_e,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="recordNumber != null">
+        #{recordNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="batteryId != null">
+        #{batteryId,jdbcType=INTEGER},
+      </if>
+      <if test="stationId != null">
+        #{stationId,jdbcType=INTEGER},
+      </if>
+      <if test="lastElectricQuantity != null">
+        #{lastElectricQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="thisElectricQuantity != null">
+        #{thisElectricQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="lastMileageValue != null">
+        #{lastMileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="thisMileageValue != null">
+        #{thisMileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseCode != null">
+        #{warehouseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTimeS != null">
+        #{orderTimeS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderTimeE != null">
+        #{orderTimeE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapRecord">
+    update swap_record
+    <set>
+      <if test="recordNumber != null">
+        record_number = #{recordNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="scooterId != null">
+        scooter_id = #{scooterId,jdbcType=INTEGER},
+      </if>
+      <if test="batteryId != null">
+        battery_id = #{batteryId,jdbcType=INTEGER},
+      </if>
+      <if test="stationId != null">
+        station_id = #{stationId,jdbcType=INTEGER},
+      </if>
+      <if test="lastElectricQuantity != null">
+        last_electric_quantity = #{lastElectricQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="thisElectricQuantity != null">
+        this_electric_quantity = #{thisElectricQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="lastMileageValue != null">
+        last_mileage_value = #{lastMileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="thisMileageValue != null">
+        this_mileage_value = #{thisMileageValue,jdbcType=INTEGER},
+      </if>
+      <if test="warehouseCode != null">
+        warehouse_code = #{warehouseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTimeS != null">
+        order_time_s = #{orderTimeS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderTimeE != null">
+        order_time_e = #{orderTimeE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapRecord">
+    update swap_record
+    set record_number = #{recordNumber,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      store_id = #{storeId,jdbcType=INTEGER},
+      scooter_id = #{scooterId,jdbcType=INTEGER},
+      battery_id = #{batteryId,jdbcType=INTEGER},
+      station_id = #{stationId,jdbcType=INTEGER},
+      last_electric_quantity = #{lastElectricQuantity,jdbcType=INTEGER},
+      this_electric_quantity = #{thisElectricQuantity,jdbcType=INTEGER},
+      last_mileage_value = #{lastMileageValue,jdbcType=INTEGER},
+      this_mileage_value = #{thisMileageValue,jdbcType=INTEGER},
+      warehouse_code = #{warehouseCode,jdbcType=VARCHAR},
+      order_time_s = #{orderTimeS,jdbcType=TIMESTAMP},
+      order_time_e = #{orderTimeE,jdbcType=TIMESTAMP},
+      order_status = #{orderStatus,jdbcType=CHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where record_id = #{recordId,jdbcType=INTEGER}
+  </update>
+</mapper>

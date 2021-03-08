@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.swap_data.dao.SwapStationMapper">
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapStation">
+    <id column="station_id" jdbcType="INTEGER" property="stationId" />
+    <result column="station_name" jdbcType="VARCHAR" property="stationName" />
+    <result column="station_code" jdbcType="VARCHAR" property="stationCode" />
+    <result column="station_model" jdbcType="VARCHAR" property="stationModel" />
+    <result column="imei" jdbcType="VARCHAR" property="imei" />
+    <result column="warehouse_number" jdbcType="INTEGER" property="warehouseNumber" />
+    <result column="store_id" jdbcType="INTEGER" property="storeId" />
+    <result column="ammeter_value" jdbcType="VARCHAR" property="ammeterValue" />
+    <result column="ammeter_time" jdbcType="TIMESTAMP" property="ammeterTime" />
+    <result column="business_time_s" jdbcType="VARCHAR" property="businessTimeS" />
+    <result column="business_time_e" jdbcType="VARCHAR" property="businessTimeE" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="channel_id" jdbcType="VARCHAR" property="channelId" />
+    <result column="station_status" jdbcType="CHAR" property="stationStatus" />
+    <result column="location_status" jdbcType="CHAR" property="locationStatus" />
+    <result column="connect_status" jdbcType="CHAR" property="connectStatus" />
+    <result column="expiration_date" jdbcType="INTEGER" property="expirationDate" />
+    <result column="supplier_id" jdbcType="VARCHAR" property="supplierId" />
+    <result column="produce_time" jdbcType="DATE" property="produceTime" />
+    <result column="hardware_version" jdbcType="VARCHAR" property="hardwareVersion" />
+    <result column="software_version" jdbcType="VARCHAR" property="softwareVersion" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+    <result column="main_img" jdbcType="VARCHAR" property="mainImg" />
+    <result column="img_list" jdbcType="VARCHAR" property="imgList" />
+    <result column="time_list" jdbcType="VARCHAR" property="timeList" />
+    <result column="time_type" jdbcType="CHAR" property="timeType" />
+    <result column="electricity_read" jdbcType="INTEGER" property="electricityRead" />
+    <result column="read_time" jdbcType="TIMESTAMP" property="readTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    station_id, station_name, station_code, station_model, imei, warehouse_number, store_id, 
+    ammeter_value, ammeter_time, business_time_s, business_time_e, address, channel_id, 
+    station_status, location_status, connect_status, expiration_date, supplier_id, produce_time, 
+    hardware_version, software_version, create_user, create_time, update_user, update_time, 
+    remark, del_flag, longitude, latitude, main_img, img_list, time_list, time_type, 
+    electricity_read, read_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_station
+    where station_id = #{stationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_station
+    where station_id = #{stationId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapStation">
+    insert into swap_station (station_id, station_name, station_code, 
+      station_model, imei, warehouse_number, 
+      store_id, ammeter_value, ammeter_time, 
+      business_time_s, business_time_e, address, 
+      channel_id, station_status, location_status, 
+      connect_status, expiration_date, supplier_id, 
+      produce_time, hardware_version, software_version, 
+      create_user, create_time, update_user, 
+      update_time, remark, del_flag, 
+      longitude, latitude, main_img, 
+      img_list, time_list, time_type, 
+      electricity_read, read_time)
+    values (#{stationId,jdbcType=INTEGER}, #{stationName,jdbcType=VARCHAR}, #{stationCode,jdbcType=VARCHAR}, 
+      #{stationModel,jdbcType=VARCHAR}, #{imei,jdbcType=VARCHAR}, #{warehouseNumber,jdbcType=INTEGER}, 
+      #{storeId,jdbcType=INTEGER}, #{ammeterValue,jdbcType=VARCHAR}, #{ammeterTime,jdbcType=TIMESTAMP}, 
+      #{businessTimeS,jdbcType=VARCHAR}, #{businessTimeE,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{channelId,jdbcType=VARCHAR}, #{stationStatus,jdbcType=CHAR}, #{locationStatus,jdbcType=CHAR}, 
+      #{connectStatus,jdbcType=CHAR}, #{expirationDate,jdbcType=INTEGER}, #{supplierId,jdbcType=VARCHAR}, 
+      #{produceTime,jdbcType=DATE}, #{hardwareVersion,jdbcType=VARCHAR}, #{softwareVersion,jdbcType=VARCHAR}, 
+      #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}, #{mainImg,jdbcType=VARCHAR}, 
+      #{imgList,jdbcType=VARCHAR}, #{timeList,jdbcType=VARCHAR}, #{timeType,jdbcType=CHAR}, 
+      #{electricityRead,jdbcType=INTEGER}, #{readTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapStation">
+    insert into swap_station
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="stationName != null">
+        station_name,
+      </if>
+      <if test="stationCode != null">
+        station_code,
+      </if>
+      <if test="stationModel != null">
+        station_model,
+      </if>
+      <if test="imei != null">
+        imei,
+      </if>
+      <if test="warehouseNumber != null">
+        warehouse_number,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="ammeterValue != null">
+        ammeter_value,
+      </if>
+      <if test="ammeterTime != null">
+        ammeter_time,
+      </if>
+      <if test="businessTimeS != null">
+        business_time_s,
+      </if>
+      <if test="businessTimeE != null">
+        business_time_e,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="stationStatus != null">
+        station_status,
+      </if>
+      <if test="locationStatus != null">
+        location_status,
+      </if>
+      <if test="connectStatus != null">
+        connect_status,
+      </if>
+      <if test="expirationDate != null">
+        expiration_date,
+      </if>
+      <if test="supplierId != null">
+        supplier_id,
+      </if>
+      <if test="produceTime != null">
+        produce_time,
+      </if>
+      <if test="hardwareVersion != null">
+        hardware_version,
+      </if>
+      <if test="softwareVersion != null">
+        software_version,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="mainImg != null">
+        main_img,
+      </if>
+      <if test="imgList != null">
+        img_list,
+      </if>
+      <if test="timeList != null">
+        time_list,
+      </if>
+      <if test="timeType != null">
+        time_type,
+      </if>
+      <if test="electricityRead != null">
+        electricity_read,
+      </if>
+      <if test="readTime != null">
+        read_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stationId != null">
+        #{stationId,jdbcType=INTEGER},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationCode != null">
+        #{stationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stationModel != null">
+        #{stationModel,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null">
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseNumber != null">
+        #{warehouseNumber,jdbcType=INTEGER},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="ammeterValue != null">
+        #{ammeterValue,jdbcType=VARCHAR},
+      </if>
+      <if test="ammeterTime != null">
+        #{ammeterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessTimeS != null">
+        #{businessTimeS,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTimeE != null">
+        #{businessTimeE,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="stationStatus != null">
+        #{stationStatus,jdbcType=CHAR},
+      </if>
+      <if test="locationStatus != null">
+        #{locationStatus,jdbcType=CHAR},
+      </if>
+      <if test="connectStatus != null">
+        #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="expirationDate != null">
+        #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="supplierId != null">
+        #{supplierId,jdbcType=VARCHAR},
+      </if>
+      <if test="produceTime != null">
+        #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="hardwareVersion != null">
+        #{hardwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="softwareVersion != null">
+        #{softwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="mainImg != null">
+        #{mainImg,jdbcType=VARCHAR},
+      </if>
+      <if test="imgList != null">
+        #{imgList,jdbcType=VARCHAR},
+      </if>
+      <if test="timeList != null">
+        #{timeList,jdbcType=VARCHAR},
+      </if>
+      <if test="timeType != null">
+        #{timeType,jdbcType=CHAR},
+      </if>
+      <if test="electricityRead != null">
+        #{electricityRead,jdbcType=INTEGER},
+      </if>
+      <if test="readTime != null">
+        #{readTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapStation">
+    update swap_station
+    <set>
+      <if test="stationName != null">
+        station_name = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationCode != null">
+        station_code = #{stationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stationModel != null">
+        station_model = #{stationModel,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null">
+        imei = #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseNumber != null">
+        warehouse_number = #{warehouseNumber,jdbcType=INTEGER},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="ammeterValue != null">
+        ammeter_value = #{ammeterValue,jdbcType=VARCHAR},
+      </if>
+      <if test="ammeterTime != null">
+        ammeter_time = #{ammeterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessTimeS != null">
+        business_time_s = #{businessTimeS,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTimeE != null">
+        business_time_e = #{businessTimeE,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="stationStatus != null">
+        station_status = #{stationStatus,jdbcType=CHAR},
+      </if>
+      <if test="locationStatus != null">
+        location_status = #{locationStatus,jdbcType=CHAR},
+      </if>
+      <if test="connectStatus != null">
+        connect_status = #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="expirationDate != null">
+        expiration_date = #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="supplierId != null">
+        supplier_id = #{supplierId,jdbcType=VARCHAR},
+      </if>
+      <if test="produceTime != null">
+        produce_time = #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="hardwareVersion != null">
+        hardware_version = #{hardwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="softwareVersion != null">
+        software_version = #{softwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="mainImg != null">
+        main_img = #{mainImg,jdbcType=VARCHAR},
+      </if>
+      <if test="imgList != null">
+        img_list = #{imgList,jdbcType=VARCHAR},
+      </if>
+      <if test="timeList != null">
+        time_list = #{timeList,jdbcType=VARCHAR},
+      </if>
+      <if test="timeType != null">
+        time_type = #{timeType,jdbcType=CHAR},
+      </if>
+      <if test="electricityRead != null">
+        electricity_read = #{electricityRead,jdbcType=INTEGER},
+      </if>
+      <if test="readTime != null">
+        read_time = #{readTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where station_id = #{stationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapStation">
+    update swap_station
+    set station_name = #{stationName,jdbcType=VARCHAR},
+      station_code = #{stationCode,jdbcType=VARCHAR},
+      station_model = #{stationModel,jdbcType=VARCHAR},
+      imei = #{imei,jdbcType=VARCHAR},
+      warehouse_number = #{warehouseNumber,jdbcType=INTEGER},
+      store_id = #{storeId,jdbcType=INTEGER},
+      ammeter_value = #{ammeterValue,jdbcType=VARCHAR},
+      ammeter_time = #{ammeterTime,jdbcType=TIMESTAMP},
+      business_time_s = #{businessTimeS,jdbcType=VARCHAR},
+      business_time_e = #{businessTimeE,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=VARCHAR},
+      station_status = #{stationStatus,jdbcType=CHAR},
+      location_status = #{locationStatus,jdbcType=CHAR},
+      connect_status = #{connectStatus,jdbcType=CHAR},
+      expiration_date = #{expirationDate,jdbcType=INTEGER},
+      supplier_id = #{supplierId,jdbcType=VARCHAR},
+      produce_time = #{produceTime,jdbcType=DATE},
+      hardware_version = #{hardwareVersion,jdbcType=VARCHAR},
+      software_version = #{softwareVersion,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      longitude = #{longitude,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      main_img = #{mainImg,jdbcType=VARCHAR},
+      img_list = #{imgList,jdbcType=VARCHAR},
+      time_list = #{timeList,jdbcType=VARCHAR},
+      time_type = #{timeType,jdbcType=CHAR},
+      electricity_read = #{electricityRead,jdbcType=INTEGER},
+      read_time = #{readTime,jdbcType=TIMESTAMP}
+    where station_id = #{stationId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.swap_data.model.SwapStation">
+    <id column="station_id" jdbcType="INTEGER" property="stationId" />
+    <result column="station_name" jdbcType="VARCHAR" property="stationName" />
+    <result column="station_code" jdbcType="VARCHAR" property="stationCode" />
+    <result column="station_model" jdbcType="VARCHAR" property="stationModel" />
+    <result column="imei" jdbcType="VARCHAR" property="imei" />
+    <result column="warehouse_number" jdbcType="INTEGER" property="warehouseNumber" />
+    <result column="store_id" jdbcType="INTEGER" property="storeId" />
+    <result column="ammeter_value" jdbcType="VARCHAR" property="ammeterValue" />
+    <result column="ammeter_time" jdbcType="TIMESTAMP" property="ammeterTime" />
+    <result column="business_time_s" jdbcType="VARCHAR" property="businessTimeS" />
+    <result column="business_time_e" jdbcType="VARCHAR" property="businessTimeE" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="channel_id" jdbcType="VARCHAR" property="channelId" />
+    <result column="station_status" jdbcType="CHAR" property="stationStatus" />
+    <result column="location_status" jdbcType="CHAR" property="locationStatus" />
+    <result column="connect_status" jdbcType="CHAR" property="connectStatus" />
+    <result column="expiration_date" jdbcType="INTEGER" property="expirationDate" />
+    <result column="supplier_id" jdbcType="VARCHAR" property="supplierId" />
+    <result column="produce_time" jdbcType="DATE" property="produceTime" />
+    <result column="hardware_version" jdbcType="VARCHAR" property="hardwareVersion" />
+    <result column="software_version" jdbcType="VARCHAR" property="softwareVersion" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+    <result column="main_img" jdbcType="VARCHAR" property="mainImg" />
+    <result column="img_list" jdbcType="VARCHAR" property="imgList" />
+    <result column="time_list" jdbcType="VARCHAR" property="timeList" />
+    <result column="time_type" jdbcType="CHAR" property="timeType" />
+    <result column="electricity_read" jdbcType="INTEGER" property="electricityRead" />
+    <result column="read_time" jdbcType="TIMESTAMP" property="readTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    station_id, station_name, station_code, station_model, imei, warehouse_number, store_id, 
+    ammeter_value, ammeter_time, business_time_s, business_time_e, address, channel_id, 
+    station_status, location_status, connect_status, expiration_date, supplier_id, produce_time, 
+    hardware_version, software_version, create_user, create_time, update_user, update_time, 
+    remark, del_flag, longitude, latitude, main_img, img_list, time_list, time_type, 
+    electricity_read, read_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from swap_station
+    where station_id = #{stationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from swap_station
+    where station_id = #{stationId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.swap_data.model.SwapStation">
+    insert into swap_station (station_id, station_name, station_code, 
+      station_model, imei, warehouse_number, 
+      store_id, ammeter_value, ammeter_time, 
+      business_time_s, business_time_e, address, 
+      channel_id, station_status, location_status, 
+      connect_status, expiration_date, supplier_id, 
+      produce_time, hardware_version, software_version, 
+      create_user, create_time, update_user, 
+      update_time, remark, del_flag, 
+      longitude, latitude, main_img, 
+      img_list, time_list, time_type, 
+      electricity_read, read_time)
+    values (#{stationId,jdbcType=INTEGER}, #{stationName,jdbcType=VARCHAR}, #{stationCode,jdbcType=VARCHAR}, 
+      #{stationModel,jdbcType=VARCHAR}, #{imei,jdbcType=VARCHAR}, #{warehouseNumber,jdbcType=INTEGER}, 
+      #{storeId,jdbcType=INTEGER}, #{ammeterValue,jdbcType=VARCHAR}, #{ammeterTime,jdbcType=TIMESTAMP}, 
+      #{businessTimeS,jdbcType=VARCHAR}, #{businessTimeE,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{channelId,jdbcType=VARCHAR}, #{stationStatus,jdbcType=CHAR}, #{locationStatus,jdbcType=CHAR}, 
+      #{connectStatus,jdbcType=CHAR}, #{expirationDate,jdbcType=INTEGER}, #{supplierId,jdbcType=VARCHAR}, 
+      #{produceTime,jdbcType=DATE}, #{hardwareVersion,jdbcType=VARCHAR}, #{softwareVersion,jdbcType=VARCHAR}, 
+      #{createUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}, #{mainImg,jdbcType=VARCHAR}, 
+      #{imgList,jdbcType=VARCHAR}, #{timeList,jdbcType=VARCHAR}, #{timeType,jdbcType=CHAR}, 
+      #{electricityRead,jdbcType=INTEGER}, #{readTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.swap_data.model.SwapStation">
+    insert into swap_station
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="stationName != null">
+        station_name,
+      </if>
+      <if test="stationCode != null">
+        station_code,
+      </if>
+      <if test="stationModel != null">
+        station_model,
+      </if>
+      <if test="imei != null">
+        imei,
+      </if>
+      <if test="warehouseNumber != null">
+        warehouse_number,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="ammeterValue != null">
+        ammeter_value,
+      </if>
+      <if test="ammeterTime != null">
+        ammeter_time,
+      </if>
+      <if test="businessTimeS != null">
+        business_time_s,
+      </if>
+      <if test="businessTimeE != null">
+        business_time_e,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="stationStatus != null">
+        station_status,
+      </if>
+      <if test="locationStatus != null">
+        location_status,
+      </if>
+      <if test="connectStatus != null">
+        connect_status,
+      </if>
+      <if test="expirationDate != null">
+        expiration_date,
+      </if>
+      <if test="supplierId != null">
+        supplier_id,
+      </if>
+      <if test="produceTime != null">
+        produce_time,
+      </if>
+      <if test="hardwareVersion != null">
+        hardware_version,
+      </if>
+      <if test="softwareVersion != null">
+        software_version,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="mainImg != null">
+        main_img,
+      </if>
+      <if test="imgList != null">
+        img_list,
+      </if>
+      <if test="timeList != null">
+        time_list,
+      </if>
+      <if test="timeType != null">
+        time_type,
+      </if>
+      <if test="electricityRead != null">
+        electricity_read,
+      </if>
+      <if test="readTime != null">
+        read_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stationId != null">
+        #{stationId,jdbcType=INTEGER},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationCode != null">
+        #{stationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stationModel != null">
+        #{stationModel,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null">
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseNumber != null">
+        #{warehouseNumber,jdbcType=INTEGER},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="ammeterValue != null">
+        #{ammeterValue,jdbcType=VARCHAR},
+      </if>
+      <if test="ammeterTime != null">
+        #{ammeterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessTimeS != null">
+        #{businessTimeS,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTimeE != null">
+        #{businessTimeE,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="stationStatus != null">
+        #{stationStatus,jdbcType=CHAR},
+      </if>
+      <if test="locationStatus != null">
+        #{locationStatus,jdbcType=CHAR},
+      </if>
+      <if test="connectStatus != null">
+        #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="expirationDate != null">
+        #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="supplierId != null">
+        #{supplierId,jdbcType=VARCHAR},
+      </if>
+      <if test="produceTime != null">
+        #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="hardwareVersion != null">
+        #{hardwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="softwareVersion != null">
+        #{softwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="mainImg != null">
+        #{mainImg,jdbcType=VARCHAR},
+      </if>
+      <if test="imgList != null">
+        #{imgList,jdbcType=VARCHAR},
+      </if>
+      <if test="timeList != null">
+        #{timeList,jdbcType=VARCHAR},
+      </if>
+      <if test="timeType != null">
+        #{timeType,jdbcType=CHAR},
+      </if>
+      <if test="electricityRead != null">
+        #{electricityRead,jdbcType=INTEGER},
+      </if>
+      <if test="readTime != null">
+        #{readTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.swap_data.model.SwapStation">
+    update swap_station
+    <set>
+      <if test="stationName != null">
+        station_name = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="stationCode != null">
+        station_code = #{stationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stationModel != null">
+        station_model = #{stationModel,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null">
+        imei = #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseNumber != null">
+        warehouse_number = #{warehouseNumber,jdbcType=INTEGER},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="ammeterValue != null">
+        ammeter_value = #{ammeterValue,jdbcType=VARCHAR},
+      </if>
+      <if test="ammeterTime != null">
+        ammeter_time = #{ammeterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessTimeS != null">
+        business_time_s = #{businessTimeS,jdbcType=VARCHAR},
+      </if>
+      <if test="businessTimeE != null">
+        business_time_e = #{businessTimeE,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="stationStatus != null">
+        station_status = #{stationStatus,jdbcType=CHAR},
+      </if>
+      <if test="locationStatus != null">
+        location_status = #{locationStatus,jdbcType=CHAR},
+      </if>
+      <if test="connectStatus != null">
+        connect_status = #{connectStatus,jdbcType=CHAR},
+      </if>
+      <if test="expirationDate != null">
+        expiration_date = #{expirationDate,jdbcType=INTEGER},
+      </if>
+      <if test="supplierId != null">
+        supplier_id = #{supplierId,jdbcType=VARCHAR},
+      </if>
+      <if test="produceTime != null">
+        produce_time = #{produceTime,jdbcType=DATE},
+      </if>
+      <if test="hardwareVersion != null">
+        hardware_version = #{hardwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="softwareVersion != null">
+        software_version = #{softwareVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null">
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="mainImg != null">
+        main_img = #{mainImg,jdbcType=VARCHAR},
+      </if>
+      <if test="imgList != null">
+        img_list = #{imgList,jdbcType=VARCHAR},
+      </if>
+      <if test="timeList != null">
+        time_list = #{timeList,jdbcType=VARCHAR},
+      </if>
+      <if test="timeType != null">
+        time_type = #{timeType,jdbcType=CHAR},
+      </if>
+      <if test="electricityRead != null">
+        electricity_read = #{electricityRead,jdbcType=INTEGER},
+      </if>
+      <if test="readTime != null">
+        read_time = #{readTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where station_id = #{stationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.swap_data.model.SwapStation">
+    update swap_station
+    set station_name = #{stationName,jdbcType=VARCHAR},
+      station_code = #{stationCode,jdbcType=VARCHAR},
+      station_model = #{stationModel,jdbcType=VARCHAR},
+      imei = #{imei,jdbcType=VARCHAR},
+      warehouse_number = #{warehouseNumber,jdbcType=INTEGER},
+      store_id = #{storeId,jdbcType=INTEGER},
+      ammeter_value = #{ammeterValue,jdbcType=VARCHAR},
+      ammeter_time = #{ammeterTime,jdbcType=TIMESTAMP},
+      business_time_s = #{businessTimeS,jdbcType=VARCHAR},
+      business_time_e = #{businessTimeE,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=VARCHAR},
+      station_status = #{stationStatus,jdbcType=CHAR},
+      location_status = #{locationStatus,jdbcType=CHAR},
+      connect_status = #{connectStatus,jdbcType=CHAR},
+      expiration_date = #{expirationDate,jdbcType=INTEGER},
+      supplier_id = #{supplierId,jdbcType=VARCHAR},
+      produce_time = #{produceTime,jdbcType=DATE},
+      hardware_version = #{hardwareVersion,jdbcType=VARCHAR},
+      software_version = #{softwareVersion,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      longitude = #{longitude,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      main_img = #{mainImg,jdbcType=VARCHAR},
+      img_list = #{imgList,jdbcType=VARCHAR},
+      time_list = #{timeList,jdbcType=VARCHAR},
+      time_type = #{timeType,jdbcType=CHAR},
+      electricity_read = #{electricityRead,jdbcType=INTEGER},
+      read_time = #{readTime,jdbcType=TIMESTAMP}
+    where station_id = #{stationId,jdbcType=INTEGER}
+  </update>
+</mapper>
